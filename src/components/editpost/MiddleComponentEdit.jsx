@@ -7,6 +7,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { GrStatusWarning } from "react-icons/gr";
 import { RiErrorWarningLine } from "react-icons/ri";
 import Image from "next/image";
+import StartRingsCreateEdit from "./StartRingsCreateEdit";
+import RawRingsCreateEdit from "./RawRingsCreateEdit";
 
 const MiddleComponentEdit = ({
   startFillRings,
@@ -61,7 +63,9 @@ const MiddleComponentEdit = ({
   }, [saveConfirmed]);
   useEffect(() => {
     setHeaderString(
-      `${rawRingsCollection.length}x${plankeTykkelse}${prosentValg}${(
+      `${
+        rawRingsCollection && rawRingsCollection.length
+      }x${plankeTykkelse}${prosentValg}${(
         Number(bladeDimension.bladStamme) + 1.4
       ).toFixed(1)}${
         SpesiellePlankeTykkelser === undefined ? "" : SpesiellePlankeTykkelser
@@ -87,9 +91,9 @@ const MiddleComponentEdit = ({
               Denne posten er allerede lagret
             </p>
           )}
-          {rawRingsCollection.length > 0 && (
+          {rawRingsCollection && rawRingsCollection.length > 0 && (
             <h1 className="header">
-              {rawRingsCollection.length}x{plankeTykkelse}
+              {rawRingsCollection && rawRingsCollection.length}x{plankeTykkelse}
               {prosentValg}
               <span>
                 {bladeDimension.bladStamme &&
@@ -101,7 +105,7 @@ const MiddleComponentEdit = ({
         </div>
 
         <div className="post-container">
-          <StartRingsCreate
+          <StartRingsCreateEdit
             startFillRings={startFillRings}
             setStartRingSum={setStartRingSum}
             startFillringsCollection={
@@ -114,8 +118,10 @@ const MiddleComponentEdit = ({
             update={update}
           />
 
-          <RawRingsCreate
-            rawRingsCollection={rawRingsCollection}
+          <RawRingsCreateEdit
+            rawRingsCollection={
+              getEditPost && getEditPost[0].rawInput.map((item) => item)
+            }
             setRawRingsCollection={setRawRingsCollection}
             rawRings={rawRings}
             rawButtonValue={rawButtonValue}
@@ -137,7 +143,9 @@ const MiddleComponentEdit = ({
           />
 
           <EndRingsCreate
-            endFillRingsCollection={endFillRingsCollection}
+            endFillRingsCollection={
+              getEditPost && getEditPost[0].endRings.map((item) => item)
+            }
             setEndFillRingsCollection={setEndFillRingsCollection}
             endFillRings={endFillRings}
             setEndFillRings={setEndFillRings}
@@ -148,7 +156,7 @@ const MiddleComponentEdit = ({
             setEndRingSum={setEndRingSum}
           />
         </div>
-        {startRingLabel < 200 ? (
+        {/*   {startRingLabel < 200 ? (
           <>
             <div className={`label-container-left ${greenColorWhenZero}`}>
               <h3>{startRingLabel}</h3>
@@ -185,7 +193,7 @@ const MiddleComponentEdit = ({
               Start med å velge sagbladtykkelse.
             </p>
           </div>
-        )}
+        )} */}
       </div>
       <style jsx>{`
         .blade {

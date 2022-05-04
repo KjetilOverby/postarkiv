@@ -60,7 +60,7 @@ const EditPost = ({
   const [SpesiellePlankeTykkelser, setSpesiellePlankeTykkelser] = useState();
   const [endringPanel, setEndringPanel] = useState(false);
 
-  const getVigg = (rawRingsCollection.length * 1.4) / 2;
+  const getVigg = (rawRingsCollection && rawRingsCollection.length * 1.4) / 2;
 
   useEffect(() => {
     setBladeAndRawringSum(
