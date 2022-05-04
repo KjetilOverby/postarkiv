@@ -89,6 +89,7 @@ function MyApp({ Component, pageProps }) {
   const [dated, setDated] = useState();
 
   const [getIdforDelete, setGetIdforDelete] = useState();
+  const [getIdForEdit, setGetIdForEdit] = useState()
 
   // Rediger
   const [treslag, setTreslag] = useState();
@@ -398,6 +399,7 @@ function MyApp({ Component, pageProps }) {
     }
   }, [router]);
 
+
   return (
     <body style={{ overflow: `${overflow}` }}>
       <Auth0Provider
@@ -488,6 +490,8 @@ function MyApp({ Component, pageProps }) {
             deletePostHandler={deletePostHandler}
             setCreateDate={setCreateDate}
             createDate={createDate}
+            setGetIdForEdit={setGetIdForEdit}
+            getIdForEdit={getIdForEdit}
           />
         </AppData.Provider>
       </Auth0Provider>

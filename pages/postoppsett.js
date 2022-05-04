@@ -33,6 +33,8 @@ const Postoppsett = ({
     }
   });
 
+  
+
   return (
     <>
       <div className="container">
@@ -49,12 +51,22 @@ const Postoppsett = ({
         </div>
         <div className="info-box2">
           {user && user.sub === process.env.USER_SUB && (
+            <>
             <button
               onClick={() => setOpenDeleteModal(true)}
               className="btn btn-delete"
             >
               Slett denn posten
             </button>
+            <Link href='editpost'>
+            <button
+             
+              className="btn btn-delete"
+            >
+              Rediger posten
+            </button>
+            </Link>
+            </>
           )}
           <p className="info-text">
             Opprettelsesdato:{" "}

@@ -24,6 +24,7 @@ const Skurliste = ({
   editModeColor,
   setCreateDate,
   postList,
+  setGetIdForEdit
 }) => {
   const { user, isAuthenticated } = useAuth0();
   return (
@@ -66,6 +67,7 @@ const Skurliste = ({
           kubikkSum={kubikkSum}
           editModeColor={editModeColor}
           setCreateDate={setCreateDate}
+          setGetIdForEdit={setGetIdForEdit}
         />
       </div>
       <style jsx>

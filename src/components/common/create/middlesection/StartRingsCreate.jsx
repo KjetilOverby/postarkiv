@@ -18,7 +18,6 @@ const StartRingsCreate = ({
     if (startFillringsCollection) {
       setStartFillringsCollection(startFillringsCollection.reverse());
     }
-    console.log("use1");
   }, [startFillRings]);
 
   useEffect(() => {
@@ -59,7 +58,7 @@ const StartRingsCreate = ({
       );
     }
   }, [startFillringsCollection]);
-
+  console.log(startFillringsCollection);
   return (
     <>
       <div className="container">
@@ -74,9 +73,9 @@ const StartRingsCreate = ({
                 <>
                   <RingComponent
                     key={item.id}
-                    color={"linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)"}
-                  >
+                    color={"linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)"}>
                     <h4 className="value">{item.input}</h4>
+
                     <div style={{ color: "#333" }}>foran</div>
                     <RiDeleteBin6Line
                       onClick={getStartFillRingsIdHandler}

@@ -13,6 +13,7 @@ const SearchListFromBtn = ({
   setOpenSearchList,
   searchAllBlades,
   setCreateDate,
+  setGetIdForEdit,
 }) => {
   const router = useRouter();
   return (
@@ -30,13 +31,13 @@ const SearchListFromBtn = ({
                 setCreateDate(item.date);
                 router.push("/postoppsett");
                 setOpenSearchList(false);
+                setGetIdForEdit(item._id);
               };
               return (
                 <div
                   key={item.id}
                   className="post-container"
-                  onClick={getPostOppsett}
-                >
+                  onClick={getPostOppsett}>
                   <p className="header">{item.header}</p>
                   <div className="ring-container">
                     {item.startRings.map((item) => (
