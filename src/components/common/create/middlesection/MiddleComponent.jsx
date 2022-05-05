@@ -50,6 +50,7 @@ const MiddleComponent = ({
   ringShims2,
   saveConfirmed,
   headerDuplicate,
+  btnCopyPost,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const [saveConfirmedDisplay, setSaveConfirmedDisplay] = useState(false);
@@ -186,12 +187,12 @@ const MiddleComponent = ({
             </p>
 
             <div className="img">
-              <div className="log-img">
+              {/*  <div className="log-img">
                 <Image src={Log} />
               </div>
               <div className="calc-img">
                 <Image src={Calc} />
-              </div>
+              </div> */}
             </div>
           </div>
         )}

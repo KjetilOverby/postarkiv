@@ -19,6 +19,8 @@ function MyApp({ Component, pageProps }) {
 
 
   const [startFillringsCollection, setStartFillringsCollection] = useState('');
+  const [rawRingsCollection, setRawRingsCollection] = useState("");
+  const [endFillRingsCollection, setEndFillRingsCollection] = useState("");
   const [btnCopyPost, setBtnCopyPost] = useState(false)
 
 
@@ -501,8 +503,12 @@ function MyApp({ Component, pageProps }) {
             getIdForEdit={getIdForEdit}
             startFillringsCollection={startFillringsCollection}
             setStartFillringsCollection={setStartFillringsCollection}
+            endFillRingsCollection={endFillRingsCollection}
+            setEndFillRingsCollection={setEndFillRingsCollection}
             btnCopyPost={btnCopyPost}
             setBtnCopyPost={setBtnCopyPost}
+            rawRingsCollection={rawRingsCollection}
+            setRawRingsCollection={setRawRingsCollection}
           />
         </AppData.Provider>
       </Auth0Provider>

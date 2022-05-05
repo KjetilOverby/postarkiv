@@ -27,10 +27,9 @@ const CreateMainPage = ({
   setEndRingLabel,
   headerDuplicate,
   saveConfirmed,
+  btnCopyPost,
 }) => {
   const [startFillRings, setStartFillRings] = useState();
-
-  console.log(startFillRings);
 
   const [rawButtonValue, setRawButtonValue] = useState();
   const [leftPanelSlide, setLeftPanelSlide] = useState("container-open");
@@ -160,6 +159,7 @@ const CreateMainPage = ({
           ringShims2={ringShims2}
           saveConfirmed={saveConfirmed}
           headerDuplicate={headerDuplicate}
+          btnCopyPost={btnCopyPost}
         />
         <RawInputList
           leftPanelSlide={leftPanelSlide}

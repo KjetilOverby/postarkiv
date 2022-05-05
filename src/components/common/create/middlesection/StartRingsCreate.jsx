@@ -12,6 +12,7 @@ const StartRingsCreate = ({
   getId,
   update,
   setUpdate,
+  startFillRingsID,
 }) => {
   const [newUpdate, setNewUpdate] = useState();
   useEffect(() => {
@@ -19,6 +20,8 @@ const StartRingsCreate = ({
       setStartFillringsCollection(startFillringsCollection.reverse());
     }
   }, [startFillRings]);
+
+  console.log(startFillRings);
 
   useEffect(() => {
     if (startFillringsCollection === undefined) {
@@ -33,7 +36,6 @@ const StartRingsCreate = ({
       ]);
     }
     setNewUpdate(Math.random());
-    console.log("use2");
   }, [startFillRings]);
   useEffect(() => {
     startFillringsCollection;

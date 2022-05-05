@@ -7,15 +7,15 @@ const api = axios.create({
   baseURL: process.env.api,
 });
 
-const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyPost, getIdForEdit}) => {
+const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyPost, getIdForEdit, endFillRingsCollection, setEndFillRingsCollection, rawRingsCollection, setRawRingsCollection}) => {
   
   const [copyPost, setCopyPost] = useState()
   
 
-  console.log(copyPost);
 
-  const [rawRingsCollection, setRawRingsCollection] = useState("");
-  const [endFillRingsCollection, setEndFillRingsCollection] = useState("");
+
+  
+  
   const [bladeDimension, setBladeDimension] = useState({ bladStamme: "" });
   const [headerString, setHeaderString] = useState();
 
@@ -29,6 +29,8 @@ const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyP
   const [postArkivCheck, setPostArkivCheck] = useState();
   const [headerDuplicate, setHeaderDuplicate] = useState();
   const [updatePostCheck, setUpdatePostCheck] = useState();
+
+  const [startFillRingsId, setStartFillRingsId] = useState()
 
   const { user, isAuthenticated } = useAuth0();
 
@@ -44,18 +46,19 @@ const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyP
   }
   }, [btnCopyPost]);
 
-  console.log(btnCopyPost);
+
 
   useEffect(() => {
     if(copyPost) {
 
     
-        setStartFillringsCollection([...copyPost[0].startRings.map(item =>[{input: item.input, id: item._id}])])
-     
+        setStartFillringsCollection([...copyPost[0].startRings])
+        setRawRingsCollection([...copyPost[0].rawInput])
+        setEndFillRingsCollection([...copyPost[0].endRings])
     }
   }, [copyPost])
 
-  console.log(copyPost && copyPost[0].startRings.map(item => item._id));
+ 
 
   const saveCreatedPost = () => {
     if (!prosentValg) {
@@ -141,6 +144,7 @@ const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyP
           endRingLabel={endRingLabel}
           setEndRingLabel={setEndRingLabel}
           headerDuplicate={headerDuplicate}
+          btnCopyPost={btnCopyPost}
         />
       </div>
       <style jsx>
