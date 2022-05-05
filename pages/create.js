@@ -7,8 +7,12 @@ const api = axios.create({
   baseURL: process.env.api,
 });
 
-const Create = () => {
-  const [startFillringsCollection, setStartFillringsCollection] = useState("");
+const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyPost, getIdForEdit}) => {
+  
+  const [copyPost, setCopyPost] = useState()
+  
+
+  console.log(copyPost);
 
   const [rawRingsCollection, setRawRingsCollection] = useState("");
   const [endFillRingsCollection, setEndFillRingsCollection] = useState("");
@@ -27,6 +31,31 @@ const Create = () => {
   const [updatePostCheck, setUpdatePostCheck] = useState();
 
   const { user, isAuthenticated } = useAuth0();
+
+  useEffect(() => {
+  if(btnCopyPost) {
+    try {
+      api.get(`/api/postarkiv/edit_post?id=${getIdForEdit}`).then((res) => {
+        setCopyPost(res.data.data);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  }, [btnCopyPost]);
+
+  console.log(btnCopyPost);
+
+  useEffect(() => {
+    if(copyPost) {
+
+    
+        setStartFillringsCollection([...copyPost[0].startRings.map(item =>[{input: item.input, id: item._id}])])
+     
+    }
+  }, [copyPost])
+
+  console.log(copyPost && copyPost[0].startRings.map(item => item._id));
 
   const saveCreatedPost = () => {
     if (!prosentValg) {

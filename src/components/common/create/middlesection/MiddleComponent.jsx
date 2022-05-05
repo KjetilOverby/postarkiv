@@ -181,8 +181,7 @@ const MiddleComponent = ({
                 fontWeight: "300",
                 marginLeft: "2rem",
                 fontSize: "1.5rem",
-              }}
-            >
+              }}>
               Start med å velge sagbladtykkelse.
             </p>
 

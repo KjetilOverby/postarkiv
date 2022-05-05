@@ -20,6 +20,8 @@ const Postoppsett = ({
   setOpenDeleteModal,
   deletePostHandler,
   createDate,
+  setBtnCopyPost,
+  btnCopyPost
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const randomNumber = Math.floor(Math.random() * 2);
@@ -38,7 +40,9 @@ const Postoppsett = ({
 
   return (
     <>
-    <MenuBtn deleteBtn={() => setOpenDeleteModal(true)} />
+    {user && user.sub === process.env.USER_SUB &&
+    <MenuBtn setBtnCopyPost={setBtnCopyPost} deleteBtn={() => setOpenDeleteModal(true)} />
+}
       <div className="container">
         <div className="info-box">
           <Link href="/skurliste">

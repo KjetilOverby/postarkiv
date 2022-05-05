@@ -42,6 +42,8 @@ const Editpost = ({
 
   const [getEditPost, setGetEditPost] = useState();
 
+  
+
   useEffect(() => {
     try {
       api.get(`/api/postarkiv/edit_post?id=${getIdForEdit}`).then((res) => {

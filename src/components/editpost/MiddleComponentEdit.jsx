@@ -83,6 +83,7 @@ const MiddleComponentEdit = ({
     <>
       <div className="container">
         <div className="header-container">
+          {getEditPost && getEditPost[0].header}
           {headerDuplicate && headerDuplicate.includes(true) && (
             <p className="check">
               <RiErrorWarningLine

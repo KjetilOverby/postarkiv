@@ -29,6 +29,9 @@ const CreateMainPage = ({
   saveConfirmed,
 }) => {
   const [startFillRings, setStartFillRings] = useState();
+
+  console.log(startFillRings);
+
   const [rawButtonValue, setRawButtonValue] = useState();
   const [leftPanelSlide, setLeftPanelSlide] = useState("container-open");
   const [startRingsPanel, setStartRingsPanel] = useState(false);

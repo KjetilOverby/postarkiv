@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { BiMenu } from "react-icons/bi";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-const MenuBtn = ({ deleteBtn }) => {
+const MenuBtn = ({ deleteBtn, setBtnCopyPost, btnCopyPost }) => {
+  const router = useRouter();
   const [move, setMove] = useState("menu-box-animation-back");
+
+  const copyPostHandler = () => {
+    setBtnCopyPost(!btnCopyPost);
+    router.push("/create");
+  };
 
   const menuHandler = () => {
     if (move === "menu-box-animation-back") {
@@ -31,7 +38,9 @@ const MenuBtn = ({ deleteBtn }) => {
           <Link href="editpost">
             <p className="tab">Rediger post</p>
           </Link>
-          <p className="tab">Kopier til ny post</p>
+          <p onClick={copyPostHandler} className="tab">
+            Kopier til ny post
+          </p>
           <p onClick={deleteBtn} className="tab">
             Slett post
           </p>
