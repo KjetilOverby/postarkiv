@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Link from "next/link";
 import ModalComponent from "../src/components/common/ModalComponent";
 import dateFormat from "dateformat";
+import MenuBtn from "../src/components/postoppsett/MenuBtn";
 
 const Postoppsett = ({
   headerPostOppsett,
@@ -37,20 +38,21 @@ const Postoppsett = ({
 
   return (
     <>
+    <MenuBtn deleteBtn={() => setOpenDeleteModal(true)} />
       <div className="container">
         <div className="info-box">
           <Link href="/skurliste">
             <button className="btn btn1">Skurliste</button>
           </Link>
-          <Link href="/postarkiv">
+         {/*  <Link href="/postarkiv">
             <button className="btn btn2">Søk i postarkivet</button>
           </Link>
           <Link href="/">
             <button className="btn btn3">Startsiden</button>
-          </Link>
+          </Link> */}
         </div>
         <div className="info-box2">
-          {user && user.sub === process.env.USER_SUB && (
+          {/* {user && user.sub === process.env.USER_SUB && (
             <>
             <button
               onClick={() => setOpenDeleteModal(true)}
@@ -67,7 +69,7 @@ const Postoppsett = ({
             </button>
             </Link>
             </>
-          )}
+          )} */}
           <p className="info-text">
             Opprettelsesdato:{" "}
             {createDate === undefined
