@@ -46,15 +46,32 @@ const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyP
   }
   }, [btnCopyPost]);
 
+ const [getCopyStamme, setGetCopyStamme] = useState()
+ const [updateStamme, setUpdateStamme] = useState(false)
+
+ useEffect(() => {
+  if(copyPost) {
+    setGetCopyStamme(copyPost && copyPost.map(item => item.blades.bladStamme))
+}
+ }, [updateStamme])
+
   useEffect(() => {
+ setUpdateStamme(!updateStamme)
+
+
+    setTimeout(() => {
+      if( getCopyStamme && getCopyStamme !== undefined) {
+        setBladeDimension({ bladStamme: getCopyStamme[0] });
+       }
+     
+      setProsentValg(copyPost && copyPost.map(item => item.header.charAt(5) + item.header.charAt(6) + item.header.charAt(7) + item.header.charAt(8)))
+      setPlankeTykkelse(copyPost && copyPost.map(item => item.header.charAt(2) + item.header.charAt(3) + item.header.charAt(4)))
+    }, 1500);
   
-      setBladeDimension({ bladStamme: copyPost && copyPost.map(item => item.blades.bladStamme) });
-      setProsentValg(copyPost && copyPost.map(item => item.prosent))
 
   }, [copyPost]);
 
- 
-console.log(copyPost);
+console.log(getCopyStamme)
 
 
   useEffect(() => {
@@ -105,6 +122,9 @@ console.log(copyPost);
         });
     }
   };
+
+  
+
   useEffect(() => {
     try {
       api.get(`/api/postarkiv/post_btn_search`).then((res) => {
@@ -116,10 +136,13 @@ console.log(copyPost);
   }, [updatePostCheck]);
   useEffect(() => {
     if (postArkivCheck) {
-      setHeaderDuplicate(
-        postArkivCheck.map((item) => item.header === String(headerString))
-      );
+        setHeaderDuplicate(
+          postArkivCheck.map((item) => item.header === String(headerString))
+        );
+    
     }
+
+    
   }, [
     bladeDimension,
     rawRingsCollection,
