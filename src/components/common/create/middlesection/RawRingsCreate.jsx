@@ -24,6 +24,7 @@ const RawRingsCreate = ({
   setRingShimsPanel2,
   ringShims2,
 }) => {
+  const [copyID, setCopyID] = useState();
   const antallPlank = rawRingsCollection.length;
   const [rawRingId, setRawRingId] = useState();
   const [shimsModeColors, setShimsModeColors] = useState(
@@ -46,7 +47,9 @@ const RawRingsCreate = ({
 
   useEffect(() => {
     if (rawRingsCollection) {
-      const remove = rawRingsCollection.filter((item) => item.id !== getId);
+      const remove = rawRingsCollection.filter((item) =>
+        item.id ? item.id !== getId : item._id !== copyID
+      );
       setRawRingsCollection(remove);
     }
   }, [getId, update]);
@@ -124,6 +127,7 @@ const RawRingsCreate = ({
           rawRingsCollection.map((raw) => {
             const getRawRingsIdHandler = () => {
               setGetId(raw.id);
+              setCopyID(raw._id);
               setUpdate(Math.random());
             };
             const addRingHandler = () => {

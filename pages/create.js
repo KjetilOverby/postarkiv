@@ -46,7 +46,7 @@ const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyP
   }
   }, [btnCopyPost]);
 
-
+console.log(startFillringsCollection);
 
   useEffect(() => {
     if(copyPost) {

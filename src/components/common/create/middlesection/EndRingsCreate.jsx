@@ -14,6 +14,7 @@ const EndRingsCreate = ({
   setEndRingSum,
 }) => {
   const [newUpdate, setNewUpdate] = useState();
+  const [copyID, setCopyID] = useState();
   useEffect(() => {
     if (endFillRingsCollection) {
       setEndFillRingsCollection(endFillRingsCollection.reverse());
@@ -40,7 +41,9 @@ const EndRingsCreate = ({
 
   useEffect(() => {
     if (endFillRingsCollection) {
-      const remove = endFillRingsCollection.filter((item) => item.id !== getId);
+      const remove = endFillRingsCollection.filter((item) =>
+        item.id ? item.id !== getId : item._id !== copyID
+      );
       setEndFillRingsCollection(remove);
     }
   }, [getId, update]);
@@ -64,14 +67,14 @@ const EndRingsCreate = ({
             endFillRingsCollection.map((item) => {
               const getEndFillRingsIdHandler = () => {
                 setGetId(item.id);
+                setCopyID(item._id);
                 setUpdate(Math.random());
               };
               return (
                 <>
                   <RingComponent
                     key={item.id}
-                    color={"linear-gradient( #d7d2cc 0%, #304352 100%)"}
-                  >
+                    color={"linear-gradient( #d7d2cc 0%, #304352 100%)"}>
                     <h4 className="value">{item.input}</h4>
                     <div>bak</div>
                     <RiDeleteBin6Line

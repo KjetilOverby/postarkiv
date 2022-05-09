@@ -14,14 +14,14 @@ const StartRingsCreate = ({
   setUpdate,
   startFillRingsID,
 }) => {
+  const [copyID, setCopyID] = useState();
   const [newUpdate, setNewUpdate] = useState();
+
   useEffect(() => {
     if (startFillringsCollection) {
       setStartFillringsCollection(startFillringsCollection.reverse());
     }
   }, [startFillRings]);
-
-  console.log(startFillRings);
 
   useEffect(() => {
     if (startFillringsCollection === undefined) {
@@ -43,8 +43,8 @@ const StartRingsCreate = ({
 
   useEffect(() => {
     if (startFillringsCollection) {
-      const remove = startFillringsCollection.filter(
-        (item) => item.id !== getId
+      const remove = startFillringsCollection.filter((item) =>
+        item.id ? item.id !== getId : item._id !== copyID
       );
       setStartFillringsCollection(remove);
     }
@@ -60,7 +60,7 @@ const StartRingsCreate = ({
       );
     }
   }, [startFillringsCollection]);
-  console.log(startFillringsCollection);
+
   return (
     <>
       <div className="container">
@@ -68,9 +68,11 @@ const StartRingsCreate = ({
           {startFillringsCollection &&
             startFillringsCollection.map((item) => {
               const getStartFillRingsIdHandler = () => {
-                setGetId(item.id);
+                setGetId(item.id ? item.id : item._id);
+                setCopyID(item._id);
                 setUpdate(Math.random());
               };
+
               return (
                 <>
                   <RingComponent
