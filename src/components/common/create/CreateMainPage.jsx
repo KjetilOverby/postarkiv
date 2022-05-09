@@ -138,6 +138,7 @@ const CreateMainPage = ({
           setBladeDimensionSum={setBladeDimensionSum}
           bladeDimensionSum={bladeDimensionSum}
           bladeDimension={bladeDimension}
+          setBladeDimension={setBladeDimension}
           startRingLabel={startRingLabel}
           startRingSum={startRingSum}
           setStartRingSum={setStartRingSum}

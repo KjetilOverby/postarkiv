@@ -46,7 +46,16 @@ const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyP
   }
   }, [btnCopyPost]);
 
-console.log(startFillringsCollection);
+  useEffect(() => {
+  
+      setBladeDimension({ bladStamme: copyPost && copyPost.map(item => item.blades.bladStamme) });
+      setProsentValg(copyPost && copyPost.map(item => item.prosent))
+
+  }, [copyPost]);
+
+ 
+console.log(copyPost);
+
 
   useEffect(() => {
     if(copyPost) {

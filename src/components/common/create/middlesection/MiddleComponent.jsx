@@ -28,6 +28,7 @@ const MiddleComponent = ({
   update,
   setUpdate,
   setRawRingSum,
+  setBladeDimension,
   bladeDimension,
   setBladeDimensionSum,
   startRingLabel,
@@ -135,6 +136,8 @@ const MiddleComponent = ({
             setRingShimsPanel2={setRingShimsPanel2}
             setRingShims={setRingShims}
             ringShims2={ringShims2}
+            setBladeDimension={setBladeDimension}
+            btnCopyPost={btnCopyPost}
           />
 
           <EndRingsCreate

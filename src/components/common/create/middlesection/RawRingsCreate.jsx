@@ -15,6 +15,7 @@ const RawRingsCreate = ({
   update,
   setRawRingSum,
   bladeDimension,
+  setBladeDimension,
   setBladeDimensionSum,
   setRingShimsPanel,
   setStartRingsPanel,
@@ -23,6 +24,7 @@ const RawRingsCreate = ({
   ringShims,
   setRingShimsPanel2,
   ringShims2,
+  btnCopyPost,
 }) => {
   const [copyID, setCopyID] = useState();
   const antallPlank = rawRingsCollection.length;
@@ -128,6 +130,7 @@ const RawRingsCreate = ({
             const getRawRingsIdHandler = () => {
               setGetId(raw.id);
               setCopyID(raw._id);
+
               setUpdate(Math.random());
             };
             const addRingHandler = () => {

@@ -509,6 +509,7 @@ function MyApp({ Component, pageProps }) {
             setBtnCopyPost={setBtnCopyPost}
             rawRingsCollection={rawRingsCollection}
             setRawRingsCollection={setRawRingsCollection}
+            
           />
         </AppData.Provider>
       </Auth0Provider>
