@@ -59,19 +59,11 @@ useEffect(() => {
 }, [copyPost])
 
   useEffect(() => {
-
- 
-      
       setBladeDimension({ bladStamme: getCopyStamme && getCopyStamme[0]});
    /*
       setProsentValg(copyPost && copyPost.map(item => item.header.charAt(2) + item.header.charAt(3) + item.header.charAt(4) + item.header.charAt(5) + item.header.charAt(6) + item.header.charAt(7) + item.header.charAt(8) + + item.header.charAt(9) + item.header.charAt(10) + item.header.charAt(11) + item.header.charAt(12) + item.header.charAt(13) + item.header.charAt(14) + item.header.charAt(15) + item.header.charAt(16) + item.header.charAt(17) + item.header.charAt(18) ))
       /* setPlankeTykkelse(copyPost && copyPost.map(item => item.header.charAt(2) + item.header.charAt(3) + item.header.charAt(4))) */
    
-
-
-
-  
-
   }, [updateCopy]);
 
 console.log(getCopyStamme && getCopyStamme[0])

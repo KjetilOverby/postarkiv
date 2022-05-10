@@ -172,7 +172,7 @@ const Postoppsett = ({
             background: linear-gradient(
                 90deg,
                 rgba(0, 0, 0, 0.8) 35%,
-                rgba(0, 0, 0, 0.8) 100%
+                rgba(0, 0, 0, 0.7) 100%
               ),
               url(${background});
             background-size: cover;

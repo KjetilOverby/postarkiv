@@ -202,7 +202,7 @@ const StartPage2 = ({
         }
 
         .container {
-          background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
+          background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
             url(${background});
           min-height: 100vh;
           width: 100vw;
