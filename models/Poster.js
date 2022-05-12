@@ -45,8 +45,11 @@ const PosterSchema = new mongoose.Schema({
   prosent: {
     type: String
   },
-  xlog: {
-  type: String
+  planker: {
+     type: String
+  },
+  spes: {
+    type: String
   },
   nameClass: {
     type: String

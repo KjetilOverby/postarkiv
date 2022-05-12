@@ -79,6 +79,8 @@ console.log(getCopyStamme && getCopyStamme[0])
     }
   }, [copyPost])
 
+  console.log(copyPost);
+
  
 
   const saveCreatedPost = () => {
@@ -96,6 +98,9 @@ console.log(getCopyStamme && getCopyStamme[0])
       api
         .post(`/api/postarkiv/save_created_post?user=${user.sub}`, {
           header: headerString,
+          prosent: prosentValg,
+          planker: 'test',
+          spes: 'spes',
           startRings: startFillringsCollection,
           rawInput: rawRingsCollection,
           endRings: endFillRingsCollection,
@@ -117,6 +122,8 @@ console.log(getCopyStamme && getCopyStamme[0])
         });
     }
   };
+
+  console.log(plankeTykkelse);
 
   
 

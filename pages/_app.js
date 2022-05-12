@@ -289,6 +289,8 @@ function MyApp({ Component, pageProps }) {
     }
   }, [breddePlank]);
 
+
+
   useEffect(() => {
     try {
       api.get(`/api/skurlister/getList`).then((res) => {
