@@ -28,6 +28,8 @@ const CreateMainPage = ({
   headerDuplicate,
   saveConfirmed,
   btnCopyPost,
+  spesiellePlankeTykkelser,
+  setSpesiellePlankeTykkelser,
 }) => {
   const [startFillRings, setStartFillRings] = useState();
 
@@ -57,7 +59,6 @@ const CreateMainPage = ({
   const [greenColorWhenZero, setGreenColorWhenZero] = useState("");
   const [greenColorWhenZero2, setGreenColorWhenZero2] = useState("");
 
-  const [SpesiellePlankeTykkelser, setSpesiellePlankeTykkelser] = useState();
   const [endringPanel, setEndringPanel] = useState(false);
 
   const getVigg = (rawRingsCollection.length * 1.4) / 2;
@@ -148,7 +149,7 @@ const CreateMainPage = ({
           greenColorWhenZero2={greenColorWhenZero2}
           prosentValg={prosentValg}
           plankeTykkelse={plankeTykkelse}
-          SpesiellePlankeTykkelser={SpesiellePlankeTykkelser}
+          spesiellePlankeTykkelser={spesiellePlankeTykkelser}
           setHeaderString={setHeaderString}
           setRingShimsPanel={setRingShimsPanel}
           setStartRingsPanel={setStartRingsPanel}

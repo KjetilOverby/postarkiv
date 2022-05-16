@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   );
 
 
-  const [startFillringsCollection, setStartFillringsCollection] = useState('');
+  const [startFillringsCollection, setStartFillringsCollection] = useState();
   const [rawRingsCollection, setRawRingsCollection] = useState("");
   const [endFillRingsCollection, setEndFillRingsCollection] = useState("");
   const [btnCopyPost, setBtnCopyPost] = useState(false)

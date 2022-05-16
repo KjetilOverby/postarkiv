@@ -25,7 +25,7 @@ const StartRingsCreate = ({
 
   useEffect(() => {
     if (startFillringsCollection === undefined) {
-      setStartFillringsCollection(null);
+      setStartFillringsCollection("");
     } else if (startFillRings) {
       setStartFillringsCollection([
         ...startFillringsCollection,

@@ -14,7 +14,7 @@ const RingList = ({
 }) => {
   const getRings = (e) => {
     if (bladeDimension.bladStamme) {
-      setRings([e.target.innerHTML]);
+      setRings(e.target.innerHTML);
 
       if (!shimsMode && !shimsMode2) {
         setTimeout(() => {

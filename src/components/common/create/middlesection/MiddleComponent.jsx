@@ -39,7 +39,7 @@ const MiddleComponent = ({
   greenColorWhenZero2,
   prosentValg,
   plankeTykkelse,
-  SpesiellePlankeTykkelser,
+  spesiellePlankeTykkelser,
   setHeaderString,
   setRingShimsPanel,
   setStartRingsPanel,
@@ -68,13 +68,13 @@ const MiddleComponent = ({
       `${rawRingsCollection.length}x${plankeTykkelse}${prosentValg}${(
         Number(bladeDimension.bladStamme) + 1.4
       ).toFixed(1)}${
-        SpesiellePlankeTykkelser === undefined ? "" : SpesiellePlankeTykkelser
+        spesiellePlankeTykkelser === undefined ? "" : spesiellePlankeTykkelser
       }`
     );
   }, [
     prosentValg,
     plankeTykkelse,
-    SpesiellePlankeTykkelser,
+    spesiellePlankeTykkelser,
     bladeDimension,
     rawRingsCollection,
   ]);
@@ -99,7 +99,7 @@ const MiddleComponent = ({
                 {bladeDimension.bladStamme &&
                   (Number(bladeDimension.bladStamme) + 1.4).toFixed(1)}
               </span>
-              {SpesiellePlankeTykkelser}
+              {spesiellePlankeTykkelser}
             </h1>
           )}
         </div>

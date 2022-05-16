@@ -17,7 +17,7 @@ const Editpost = ({
   getIDforDe,
   getIdForEdit,
 }) => {
-  console.log(headerPostOppsett);
+ 
   const [startFillringsCollection, setStartFillringsCollection] = useState();
 
   const [rawRingsCollection, setRawRingsCollection] = useState("");

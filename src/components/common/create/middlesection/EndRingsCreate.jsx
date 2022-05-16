@@ -35,6 +35,7 @@ const EndRingsCreate = ({
     }
     setNewUpdate(Math.random());
   }, [endFillRings]);
+
   useEffect(() => {
     endFillRingsCollection;
   }, [newUpdate]);

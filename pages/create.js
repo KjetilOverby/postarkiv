@@ -21,6 +21,7 @@ const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyP
 
   const [prosentValg, setProsentValg] = useState("");
   const [plankeTykkelse, setPlankeTykkelse] = useState("");
+  const [spesiellePlankeTykkelser, setSpesiellePlankeTykkelser] = useState();
   const [startRingLabel, setStartRingLabel] = useState();
   const [endRingLabel, setEndRingLabel] = useState();
 
@@ -66,7 +67,7 @@ useEffect(() => {
    
   }, [updateCopy]);
 
-console.log(getCopyStamme && getCopyStamme[0])
+
 
 
   useEffect(() => {
@@ -79,7 +80,7 @@ console.log(getCopyStamme && getCopyStamme[0])
     }
   }, [copyPost])
 
-  console.log(copyPost);
+  
 
  
 
@@ -99,8 +100,8 @@ console.log(getCopyStamme && getCopyStamme[0])
         .post(`/api/postarkiv/save_created_post?user=${user.sub}`, {
           header: headerString,
           prosent: prosentValg,
-          planker: 'test',
-          spes: 'spes',
+          planker: plankeTykkelse,
+          spes: spesiellePlankeTykkelser,
           startRings: startFillringsCollection,
           rawInput: rawRingsCollection,
           endRings: endFillRingsCollection,
@@ -123,7 +124,9 @@ console.log(getCopyStamme && getCopyStamme[0])
     }
   };
 
-  console.log(plankeTykkelse);
+  
+
+  
 
   
 
@@ -179,6 +182,8 @@ console.log(getCopyStamme && getCopyStamme[0])
           setEndRingLabel={setEndRingLabel}
           headerDuplicate={headerDuplicate}
           btnCopyPost={btnCopyPost}
+          spesiellePlankeTykkelser={spesiellePlankeTykkelser}
+          setSpesiellePlankeTykkelser={setSpesiellePlankeTykkelser}
         />
       </div>
       <style jsx>
