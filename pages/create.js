@@ -77,10 +77,12 @@ useEffect(() => {
         setStartFillringsCollection([...copyPost[0].startRings])
         setRawRingsCollection([...copyPost[0].rawInput])
         setEndFillRingsCollection([...copyPost[0].endRings])
+        setPlankeTykkelse(copyPost[0].planker)
+        setProsentValg(copyPost[0].prosent)
     }
   }, [copyPost])
 
-  
+  console.log(copyPost);
 
  
 
