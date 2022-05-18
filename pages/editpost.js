@@ -16,6 +16,8 @@ const Editpost = ({
   headerPostOppsett,
   getIDforDe,
   getIdForEdit,
+  getEditPost,
+  setGetEditPost
 }) => {
  
   const [startFillringsCollection, setStartFillringsCollection] = useState();
@@ -40,7 +42,7 @@ const Editpost = ({
 
   const { user, isAuthenticated } = useAuth0();
 
-  const [getEditPost, setGetEditPost] = useState();
+  
 
   
 
@@ -54,12 +56,23 @@ const Editpost = ({
     }
   }, [getIdForEdit]);
 
+  const saveUpdatedPost = () => {
+    api.patch(`api/postarkiv/save_edit_post?ids=${getIdForEdit}`), 
+    {
+      header: headerString,
+      planker: '100'
+    }
+  }
+
+  console.log(prosent);
+
   return (
     <>
       <div className="container">
         <EditPost
           /*  saveCreatedPost={saveCreatedPost} */
           getEditPost={getEditPost}
+          
           startFillringsCollection={startFillringsCollection}
           setStartFillringsCollection={setStartFillringsCollection}
           setRawRingsCollection={setRawRingsCollection}
@@ -79,6 +92,7 @@ const Editpost = ({
           endRingLabel={endRingLabel}
           setEndRingLabel={setEndRingLabel}
           headerDuplicate={headerDuplicate}
+          saveUpdatedPost={saveUpdatedPost}
         />
       </div>
       <style jsx>

@@ -23,6 +23,9 @@ function MyApp({ Component, pageProps }) {
   const [endFillRingsCollection, setEndFillRingsCollection] = useState("");
   const [btnCopyPost, setBtnCopyPost] = useState(false)
 
+  //EDIT POST
+  const [getEditPost, setGetEditPost] = useState();
+
 
   const [background, setBackground] = useState();
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
@@ -411,6 +414,10 @@ function MyApp({ Component, pageProps }) {
   }, [router]);
 
 
+ 
+
+  
+console.log(getEditPost);
   return (
     <body style={{ overflow: `${overflow}` }}>
       <Auth0Provider
@@ -511,6 +518,8 @@ function MyApp({ Component, pageProps }) {
             setBtnCopyPost={setBtnCopyPost}
             rawRingsCollection={rawRingsCollection}
             setRawRingsCollection={setRawRingsCollection}
+            getEditPost={getEditPost}
+            setGetEditPost={setGetEditPost}
             
           />
         </AppData.Provider>

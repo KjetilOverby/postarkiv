@@ -9,6 +9,7 @@ const LeftComponent = ({
   setStartRingsPanel,
   setRingShimsPanel,
   setRingShimsPanel2,
+  saveUpdatedPost,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const rawInputBtn = () => {
@@ -45,6 +46,7 @@ const LeftComponent = ({
             Lagre post
           </button>
         )}
+        <button onClick={saveUpdatedPost}>Lagre endringer</button>
         <hr style={{ width: "80%", color: "#f8f8f899" }} />
         <Link href="/">
           <button className="btn link">Startsiden</button>

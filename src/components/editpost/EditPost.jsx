@@ -29,6 +29,7 @@ const EditPost = ({
   headerDuplicate,
   saveConfirmed,
   getEditPost,
+  saveUpdatedPost,
 }) => {
   const [startFillRings, setStartFillRings] = useState();
   const [rawButtonValue, setRawButtonValue] = useState();
@@ -118,6 +119,7 @@ const EditPost = ({
           setStartRingsPanel={setStartRingsPanel}
           setRingShimsPanel={setRingShimsPanel}
           setRingShimsPanel2={setRingShimsPanel2}
+          saveUpdatedPost={saveUpdatedPost}
         />
         <MiddleComponentEdit
           getEditPost={getEditPost}
