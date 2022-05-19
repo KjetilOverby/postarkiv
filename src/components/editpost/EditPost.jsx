@@ -111,6 +111,7 @@ const EditPost = ({
           setPlankeTykkelse={setPlankeTykkelse}
           setSpesiellePlankeTykkelser={setSpesiellePlankeTykkelser}
           bladeDimension={bladeDimension}
+          getEditPost={getEditPost}
         />
         <LeftComponent
           setLeftPanelSlide={setLeftPanelSlide}
@@ -120,6 +121,7 @@ const EditPost = ({
           setRingShimsPanel={setRingShimsPanel}
           setRingShimsPanel2={setRingShimsPanel2}
           saveUpdatedPost={saveUpdatedPost}
+          getEditPost={getEditPost}
         />
         <MiddleComponentEdit
           getEditPost={getEditPost}

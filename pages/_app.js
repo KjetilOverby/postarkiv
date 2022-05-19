@@ -414,10 +414,6 @@ function MyApp({ Component, pageProps }) {
   }, [router]);
 
 
- 
-
-  
-console.log(getEditPost);
   return (
     <body style={{ overflow: `${overflow}` }}>
       <Auth0Provider

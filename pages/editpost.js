@@ -43,28 +43,45 @@ const Editpost = ({
   const { user, isAuthenticated } = useAuth0();
 
   
-
+const [updateEditPost, setUpdateEditPost] = useState(false)
   
 
   useEffect(() => {
     try {
       api.get(`/api/postarkiv/edit_post?id=${getIdForEdit}`).then((res) => {
         setGetEditPost(res.data.data);
+        if(res.status === 200) {
+
+          setUpdateEditPost(!updateEditPost)
+        }
       });
+    
     } catch (error) {
       console.log(error);
     }
   }, [getIdForEdit]);
 
   const saveUpdatedPost = () => {
-    api.patch(`api/postarkiv/save_edit_post?ids=${getIdForEdit}`), 
+    api.patch(`api/postarkiv/save_edit_post?ids=${getIdForEdit}`, 
     {
       header: headerString,
-      planker: '100'
-    }
+      planker: plankeTykkelse,
+      prosent: prosentValg,
+      
+    })
   }
+// Kan rediger stringHeader. Mangler å bytte ut utfylling foran og bak samt råmål.
+  
 
-  console.log(prosent);
+  useEffect(() => {
+    if(getEditPost) {
+
+      setProsentValg(getEditPost.map(item => item.prosent))
+      setPlankeTykkelse(getEditPost.map(item => item.planker))
+    }
+  }, [updateEditPost])
+
+
 
   return (
     <>
@@ -98,6 +115,7 @@ const Editpost = ({
       <style jsx>
         {`
           .container {
+           
           }
           .btn {
             margin: 1rem;

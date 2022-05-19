@@ -82,7 +82,7 @@ useEffect(() => {
     }
   }, [copyPost])
 
-  console.log(copyPost);
+ 
 
  
 

@@ -77,7 +77,10 @@ const MiddleComponentEdit = ({
     SpesiellePlankeTykkelser,
     bladeDimension,
     rawRingsCollection,
+    getEditPost,
   ]);
+
+  console.log(getEditPost && getEditPost.map((item) => item.rawInput.length));
 
   return (
     <>
@@ -92,7 +95,7 @@ const MiddleComponentEdit = ({
               Denne posten er allerede lagret
             </p>
           )}
-          {rawRingsCollection && rawRingsCollection.length > 0 && (
+          {getEditPost && (
             <h1 className="header">
               {rawRingsCollection && rawRingsCollection.length}x{plankeTykkelse}
               {prosentValg}

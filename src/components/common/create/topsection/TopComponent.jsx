@@ -8,13 +8,18 @@ const TopComponent = ({
   setPlankeTykkelse,
   setSpesiellePlankeTykkelser,
   bladeDimension,
+  getEditPost,
 }) => {
   return (
     <>
       <div className="container">
         <div>
           <h1 className="header">Post kalkulator</h1>
-          <p className="sub-header">Lag nye poster.</p>
+          {getEditPost ? (
+            <p className="sub-header-edit">Rediger post</p>
+          ) : (
+            <p className="sub-header">Lag nye poster</p>
+          )}
         </div>
         <div>
           <div className="blade-select-container">
@@ -53,7 +58,7 @@ const TopComponent = ({
         {`
           .container {
             grid-area: top;
-            background: #ffffff;
+            background: #fff;
             padding: 2rem;
             display: flex;
           }
@@ -64,6 +69,9 @@ const TopComponent = ({
           }
           .sub-header {
             color: #60816f;
+          }
+          .sub-header-edit {
+            color: orangered;
           }
           .input-container {
             margin-left: 1rem;

@@ -58,7 +58,7 @@ const StartRingsCreateEdit = ({
       );
     }
   }, [startFillringsCollection]);
-  console.log(startFillringsCollection);
+
   return (
     <>
       <div className="container">

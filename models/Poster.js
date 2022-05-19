@@ -55,8 +55,11 @@ const PosterSchema = new mongoose.Schema({
     type: String
   },
   date: {
-    type: Date,
+    type: Date
   },
+  editDate: {
+    type: Date
+  }
 });
 
 module.exports = mongoose.models.Posts || mongoose.model("Posts", PosterSchema);

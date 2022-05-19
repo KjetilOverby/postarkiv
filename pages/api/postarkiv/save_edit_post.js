@@ -5,17 +5,14 @@ dbConnect();
 
 export default async (req, res) => {
   const { method } = req;
-
+   console.log(req.body.header);
   switch (method) {
     case "PATCH":
       try {
         const post = await Poster.findByIdAndUpdate({_id: req.query.ids},
 
         {
-          header: req.body.headerString,
-          prosent: req.body.prosent,
-          planker: req.body.planker,
-          spes: req.body.spes,
+          header: req.body.header,
         },
         { new: true,
           runValidators: true,

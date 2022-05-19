@@ -10,6 +10,7 @@ const LeftComponent = ({
   setRingShimsPanel,
   setRingShimsPanel2,
   saveUpdatedPost,
+  getEditPost,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const rawInputBtn = () => {
@@ -41,12 +42,17 @@ const LeftComponent = ({
         <button onClick={endRingInput} className="btn">
           Legg til utfylling bak
         </button>
-        {user && user.sub === process.env.USER_SUB && (
+        {user && user.sub === process.env.USER_SUB && !getEditPost && (
           <button onClick={saveCreatedPost} className="btn">
             Lagre post
           </button>
         )}
-        <button onClick={saveUpdatedPost}>Lagre endringer</button>
+        {getEditPost && (
+          <button className="btn btn-edit" onClick={saveUpdatedPost}>
+            Lagre endringer
+          </button>
+        )}
+
         <hr style={{ width: "80%", color: "#f8f8f899" }} />
         <Link href="/">
           <button className="btn link">Startsiden</button>
@@ -83,6 +89,12 @@ const LeftComponent = ({
             cursor: pointer;
             background-position: 100%;
             color: white;
+          }
+          .btn-edit {
+            background: orange;
+          }
+          .btn-edit:hover {
+            background: orangered;
           }
           .link {
             background: #7ea9e0;
