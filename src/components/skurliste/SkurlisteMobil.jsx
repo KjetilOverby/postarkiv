@@ -75,6 +75,10 @@ const SkurlisteMobil = ({
                 className={`field ${
                   list.progress === "finished" ? "field-grey" : "field-green"
                 }`}>
+                <p onClick={getPostHandler} className={styles.uttak}>
+                  {list.post}x{list.breddePost}-{list.prosent}%-
+                  {list.blad}
+                </p>
                 <p>{list.treslag}</p>
                 <p>
                   Klasse: {list.klasse} {list.klType}
@@ -82,11 +86,6 @@ const SkurlisteMobil = ({
                 <p>Antall: {list.ant}</p>
                 <p>M3: {list.m3}</p>
                 <p>Status: {list.status}</p>
-                <p onClick={getPostHandler} className={styles.uttak}>
-                  {list.post}x{list.breddePost}-{list.prosent}%-
-                  {list.blad}
-                </p>
-                <p>Bredde: </p>
                 <p>X-log: {list.xLog}</p>
                 <div>
                   <p>Anm: {list.anm}</p>

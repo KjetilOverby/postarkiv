@@ -21,7 +21,8 @@
 
 .uttak {
     font-weight: bold;
-    color:brown
+    color:brown;
+    font-size: 1.2rem
 }
 .header {
     margin-bottom: 2rem;
