@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import ButtonComponent from "../common/buttons/ButtonComponent";
+import styles from "../../../styles/skurlisteMobil.module.css";
 
 const SearchListFromBtn = ({
   filteredPostList,
@@ -18,7 +19,7 @@ const SearchListFromBtn = ({
   const router = useRouter();
   return (
     <>
-      <div className="container">
+      <div className={styles.container}>
         <h1>
           {filteredPostList &&
             filteredPostList.map((item) => {
@@ -38,15 +39,17 @@ const SearchListFromBtn = ({
                   key={item.id}
                   className="post-container"
                   onClick={getPostOppsett}>
-                  <p className="header">{item.header}</p>
+                  <p className={styles.header}>{item.header}</p>
                   <div className="ring-container">
                     {item.startRings.map((item) => (
-                      <p key={item.input._id} className="rings">
+                      <p key={item.input._id} className={styles.rings}>
                         {item.input}
                       </p>
                     ))}
                     {item.rawInput.map((item) => (
-                      <p key={item.input._id} className="rings rawinput">
+                      <p
+                        key={item.input._id}
+                        className={`${styles.rings} rawinput`}>
                         {(item.input + 1.4).toFixed(1)}
                         <p key={item.input._id} className="rawGauge">
                           {item.input}
@@ -54,7 +57,9 @@ const SearchListFromBtn = ({
                       </p>
                     ))}
                     {item.endRings.map((item) => (
-                      <p key={item.input._id} className="rings endrings">
+                      <p
+                        key={item.input._id}
+                        className={`${styles.rings} endrings`}>
                         {item.input}
                       </p>
                     ))}
@@ -82,14 +87,14 @@ const SearchListFromBtn = ({
         {`
           .container {
             background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
- background-blend-mode: multiply,multiply;
+            background-blend-mode: multiply, multiply;
             position: fixed;
             padding: 2rem;
             margin-left: 1rem;
             margin-top: 1rem;
             border-radius: 5px;
             box-shadow: 10px 10px 50px black;
-            animation: bounceInLeft .7s forwards;
+            animation: bounceInLeft 0.7s forwards;
             overflow: scroll;
             max-height: 80%;
             display: flex;
@@ -100,7 +105,7 @@ const SearchListFromBtn = ({
             margin-bottom: 2rem;
             text-align: center;
             color: #415a61;
-            font-size: 1.2rem
+            font-size: 1.2rem;
           }
 
           .btn {
@@ -111,14 +116,13 @@ const SearchListFromBtn = ({
             transition: 0.5s;
             border-radius: 5px;
             background: #ffffff;
-            font-weight: 300
+            font-weight: 300;
           }
           .btn:hover {
             cursor: pointer;
             background-color: #8fd1e7;
           }
-         
-        
+
           .header-component {
             padding: 2rem 0;
             background-color: #d8d8d8;
@@ -131,8 +135,16 @@ const SearchListFromBtn = ({
             height: 10rem;
           }
           .rings {
-            background-image: linear-gradient(to top, #ffffff 0%, lightgrey 1%, #b6b6b6 26%, #efefef 48%, #d9d9d9 75%, #959595 100%);
- background-blend-mode: screen;
+            background-image: linear-gradient(
+              to top,
+              #ffffff 0%,
+              lightgrey 1%,
+              #b6b6b6 26%,
+              #efefef 48%,
+              #d9d9d9 75%,
+              #959595 100%
+            );
+            background-blend-mode: screen;
             border: 1px solid #a3a1a171;
             padding: 0.5rem;
             font-size: 0.9rem;
@@ -145,15 +157,20 @@ const SearchListFromBtn = ({
             margin-right: 0.2rem;
             border-radius: 5px;
             box-shadow: 2px 2px 10px grey;
-            
-           
           }
           .endrings {
           }
           .rawinput {
-            background-image: linear-gradient(to top, #ffffff 0%, #aad8b3 1%, #53b368 26%, #bde6ca 48%, #9debc7 75%, #499481 100%);
+            background-image: linear-gradient(
+              to top,
+              #ffffff 0%,
+              #aad8b3 1%,
+              #53b368 26%,
+              #bde6ca 48%,
+              #9debc7 75%,
+              #499481 100%
+            );
             position: relative;
-           
           }
           .ring-container {
             display: flex;
@@ -167,7 +184,8 @@ const SearchListFromBtn = ({
             transition: 0.5s;
             display: flex;
             flex-direction: column;
-            justify-content: center;align-items: center;
+            justify-content: center;
+            align-items: center;
           }
           .post-container:hover {
             cursor: pointer;
@@ -178,12 +196,10 @@ const SearchListFromBtn = ({
             width: 18rem;
             justify-content: space-between;
             padding-left: 1rem;
-            
           }
           .option-btn {
             width: 8rem;
             height: 2rem;
-            
           }
           @keyframes move {
             0% {
@@ -194,38 +210,47 @@ const SearchListFromBtn = ({
             }
           }
           @keyframes bounceInLeft {
-  0%, 60%, 75%, 90%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-  }
+            0%,
+            60%,
+            75%,
+            90%,
+            100% {
+              -webkit-transition-timing-function: cubic-bezier(
+                0.215,
+                0.61,
+                0.355,
+                1
+              );
+              transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
 
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(-3000px, 0, 0);
-    transform: translate3d(-3000px, 0, 0);
-  }
+            0% {
+              opacity: 0;
+              -webkit-transform: translate3d(-3000px, 0, 0);
+              transform: translate3d(-3000px, 0, 0);
+            }
 
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(25px, 0, 0);
-    transform: translate3d(25px, 0, 0);
-  }
+            60% {
+              opacity: 1;
+              -webkit-transform: translate3d(25px, 0, 0);
+              transform: translate3d(25px, 0, 0);
+            }
 
-  75% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-    transform: translate3d(-10px, 0, 0);
-  }
+            75% {
+              -webkit-transform: translate3d(-10px, 0, 0);
+              transform: translate3d(-10px, 0, 0);
+            }
 
-  90% {
-    -webkit-transform: translate3d(5px, 0, 0);
-    transform: translate3d(5px, 0, 0);
-  }
+            90% {
+              -webkit-transform: translate3d(5px, 0, 0);
+              transform: translate3d(5px, 0, 0);
+            }
 
-  100% {
-    -webkit-transform: none;
-    transform: none;
-  }
-
+            100% {
+              -webkit-transform: none;
+              transform: none;
+            }
+          }
         `}
       </style>
     </>

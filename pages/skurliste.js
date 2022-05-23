@@ -5,6 +5,8 @@ var dateFormat = require("dateformat");
 import { useAuth0 } from "@auth0/auth0-react";
 import Users from "../utils/users";
 import ButtonComponent from "../src/components/common/buttons/ButtonComponent";
+import SkurlisteMobil from "../src/components/skurliste/SkurlisteMobil";
+import { useMediaQuery } from "react-responsive";
 
 const Skurliste = ({
   filteredPostList,
@@ -27,6 +29,7 @@ const Skurliste = ({
   setGetIdForEdit
 }) => {
   const { user, isAuthenticated } = useAuth0();
+  const isMobile = useMediaQuery({ query: `(max-width: 550px)` });
   return (
     <>
       <div className="container">
@@ -50,7 +53,7 @@ const Skurliste = ({
             )}
           </div>
         </div>
-        <SkurlisteComponent
+      {!isMobile &&   <SkurlisteComponent
           postList={postList}
           setFilteredPostList={setFilteredPostList}
           filteredPostList={filteredPostList}
@@ -68,8 +71,25 @@ const Skurliste = ({
           editModeColor={editModeColor}
           setCreateDate={setCreateDate}
           setGetIdForEdit={setGetIdForEdit}
-        />
+        />}
       </div>
+      {isMobile && <SkurlisteMobil  postList={postList}
+          setFilteredPostList={setFilteredPostList}
+          filteredPostList={filteredPostList}
+          setPostOppsett={setPostOppsett}
+          setHeaderPostOppsett={setHeaderPostOppsett}
+          setStartRingsPostOppsett={setStartRingsPostOppsett}
+          setRawRingsPostOppsett={setRawRingsPostOppsett}
+          setEndRingsPostOppsett={setEndRingsPostOppsett}
+          setBladstamme={setBladstamme}
+          setOpenSearchList={setOpenSearchList}
+          openSearchList={openSearchList}
+          setOpenDeleteModal={setOpenDeleteModal}
+          antallSum={antallSum}
+          kubikkSum={kubikkSum}
+          editModeColor={editModeColor}
+          setCreateDate={setCreateDate}
+          setGetIdForEdit={setGetIdForEdit}/>}
       <style jsx>
         {`
           .btn-container {
