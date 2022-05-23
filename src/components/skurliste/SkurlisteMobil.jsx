@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { AppData } from "../../contexts/AppData";
 import styles from "../../../styles/skurlisteMobil.module.css";
 import SearchListFromBtn from "./SearchListFromBtn";
+import { MdLineStyle } from "react-icons/md";
 
 const SkurlisteMobil = ({
   postList,
@@ -72,9 +73,11 @@ const SkurlisteMobil = ({
 
             return (
               <div
+                key={list._id}
                 className={`field ${
                   list.progress === "finished" ? "field-grey" : "field-green"
-                }`}>
+                }`}
+              >
                 <p onClick={getPostHandler} className={styles.uttak}>
                   {list.post}x{list.breddePost}-{list.prosent}%-
                   {list.blad}
