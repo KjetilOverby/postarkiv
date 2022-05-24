@@ -21,7 +21,9 @@ const Postoppsett = ({
   deletePostHandler,
   createDate,
   setBtnCopyPost,
-  btnCopyPost
+  btnCopyPost,
+  postBredde,
+  post2,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const randomNumber = Math.floor(Math.random() * 2);
@@ -36,8 +38,7 @@ const Postoppsett = ({
     }
   });
 
-  
-
+ 
   return (
     <>
     {user && user.sub === process.env.USER_SUB &&
@@ -124,6 +125,7 @@ const Postoppsett = ({
               );
             })}
         </div>
+        {post2 && <h1 className="full-post-name">{post2}x{postBredde} <span style={{color: 'yellow'}}>{(bladstamme + 1.4).toFixed(1)}</span></h1>}
         {user && user.sub === Users && (
           <div className="userContainer">
             <p className="bottom-text">
@@ -134,6 +136,7 @@ const Postoppsett = ({
         )}
         {!user && (
           <div className="userContainer">
+            
             <p className="bottom-text">
               Postarkiv © copyright 2016-{currentYear}
             </p>
@@ -178,6 +181,13 @@ const Postoppsett = ({
            ),
            url(${background});
          background-size: cover;
+       }
+       .full-post-name {
+         color: #fff;
+         position: absolute;
+         font-weight: 100;
+         bottom: 3rem;
+         left: 2rem
        }
        @keyframes slide {
          0% {

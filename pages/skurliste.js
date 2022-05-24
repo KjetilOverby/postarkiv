@@ -26,7 +26,10 @@ const Skurliste = ({
   editModeColor,
   setCreateDate,
   postList,
-  setGetIdForEdit
+  setGetIdForEdit, 
+  setPostBredde,
+  post2,
+  setPost2
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const isMobile = useMediaQuery({ query: `(max-width: 550px)` });
@@ -71,6 +74,9 @@ const Skurliste = ({
           editModeColor={editModeColor}
           setCreateDate={setCreateDate}
           setGetIdForEdit={setGetIdForEdit}
+          setPostBredde={setPostBredde}
+          post2={post2}
+          setPost2={setPost2}
         />}
       </div>
       {isMobile && <SkurlisteMobil  postList={postList}
@@ -89,7 +95,14 @@ const Skurliste = ({
           kubikkSum={kubikkSum}
           editModeColor={editModeColor}
           setCreateDate={setCreateDate}
-          setGetIdForEdit={setGetIdForEdit}/>}
+          setGetIdForEdit={setGetIdForEdit}
+          post2={post2}
+          setPost2={setPost2}
+          
+          />
+          }
+          
+          
       <style jsx>
         {`
           .btn-container {

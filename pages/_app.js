@@ -90,6 +90,7 @@ function MyApp({ Component, pageProps }) {
   const [openSearchList, setOpenSearchList] = useState(false);
 
   const [headerPostOppsett, setHeaderPostOppsett] = useState();
+
   const [startRingsPostOppsett, setStartRingsPostOppsett] = useState();
   const [rawRingsPostOppsett, setRawRingsPostOppsett] = useState();
   const [endRingsPostOppsett, setEndRingsPostOppsett] = useState();
@@ -100,6 +101,8 @@ function MyApp({ Component, pageProps }) {
 
   const [getIdforDelete, setGetIdforDelete] = useState();
   const [getIdForEdit, setGetIdForEdit] = useState()
+  const [postBredde, setPostBredde] = useState();
+  const [post2, setPost2] = useState()
 
   
 
@@ -384,6 +387,7 @@ function MyApp({ Component, pageProps }) {
         }
       });
   };
+  
   const deletePostHandler = () => {
     api
       .delete(
@@ -516,6 +520,10 @@ function MyApp({ Component, pageProps }) {
             setRawRingsCollection={setRawRingsCollection}
             getEditPost={getEditPost}
             setGetEditPost={setGetEditPost}
+            setPostBredde={setPostBredde}
+            postBredde={postBredde}
+            post2={post2}
+            setPost2={setPost2}
             
           />
         </AppData.Provider>

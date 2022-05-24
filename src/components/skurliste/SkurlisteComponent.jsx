@@ -32,9 +32,11 @@ const SkurlisteComponent = ({
   setEditModeColor,
   setCreateDate,
   setGetIdForEdit,
+  setPostBredde,
+  post2,
+  setPost2,
 }) => {
   const { lists } = useContext(AppData);
-  const [post, setPost] = useState();
   const [percent, setPercent] = useState();
   const [blade, setBlade] = useState();
   const [redStatusColor, setRedStatusColor] = useState();
@@ -42,15 +44,15 @@ const SkurlisteComponent = ({
     if (postList) {
       setFilteredPostList(
         postList.filter((item) =>
-          item.header.includes(`${post}-${percent}%-${blade}`)
+          item.header.includes(`${post2}-${percent}%-${blade}`)
         )
       );
     }
-  }, [post]);
+  }, [post2]);
 
   const searchAllBlades = () => {
     setFilteredPostList(
-      postList.filter((item) => item.header.includes(`${post}-${percent}%`))
+      postList.filter((item) => item.header.includes(`${post2}-${percent}%`))
     );
   };
 
@@ -135,10 +137,11 @@ const SkurlisteComponent = ({
           {lists &&
             lists.map((item) => {
               const getPostHandler = () => {
-                setPost(item.post);
+                setPost2(item.post);
                 setPercent(item.prosent);
                 setBlade(item.blad);
                 setOpenSearchList(true);
+                setPostBredde(item.breddePost);
               };
               const openDeleteModal = () => {
                 setOpenDeleteModal(true);
