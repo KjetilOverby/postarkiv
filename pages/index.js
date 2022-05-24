@@ -15,6 +15,7 @@ export default function Home({
   setRandomNumber,
   randomNumber,
   setGetUser,
+  setPost2
 }) {
   const { user, isAuthenticated } = useAuth0();
   useEffect(() => {
@@ -48,6 +49,7 @@ export default function Home({
         setRandomNumber={setRandomNumber}
         randomNumber={randomNumber}
         user={user}
+        setPost2={setPost2}
       />
     </div>
   );

@@ -42,6 +42,7 @@ const StartPage2 = ({
   setRandomNumber,
   randomNumber,
   user,
+  setPost2,
 }) => {
   const currentYear = new Date().getFullYear();
   const isMobile = useMediaQuery({ query: `(max-width: 1000px)` });
@@ -138,12 +139,14 @@ const StartPage2 = ({
           <Logout />
         </button>
         <div className="btn-container">
-          <ButtonConponent
-            header="Postarkiv"
-            imgWidth="7rem"
-            link="/postarkiv"
-            image={postarkiv}
-          />
+          <div onClick={() => setPost2("")}>
+            <ButtonConponent
+              header="Postarkiv"
+              imgWidth="7rem"
+              link="/postarkiv"
+              image={postarkiv}
+            />
+          </div>
           <ButtonConponent
             header="Skurliste"
             imgWidth="10rem"

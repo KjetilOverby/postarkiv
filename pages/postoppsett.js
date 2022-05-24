@@ -24,6 +24,7 @@ const Postoppsett = ({
   btnCopyPost,
   postBredde,
   post2,
+  setPost2
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const randomNumber = Math.floor(Math.random() * 2);
@@ -42,7 +43,7 @@ const Postoppsett = ({
   return (
     <>
     {user && user.sub === process.env.USER_SUB &&
-    <MenuBtn setBtnCopyPost={setBtnCopyPost} deleteBtn={() => setOpenDeleteModal(true)} />
+    <MenuBtn setBtnCopyPost={setBtnCopyPost} deleteBtn={() => setOpenDeleteModal(true)} setPost2={setPost2}/>
 }
       <div className="container">
         <div className="info-box">

@@ -11,6 +11,7 @@ const LeftComponent = ({
   setRingShimsPanel2,
   saveUpdatedPost,
   getEditPost,
+  setPost2,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const rawInputBtn = () => {
@@ -60,9 +61,11 @@ const LeftComponent = ({
         <Link href="/skurliste">
           <button className="btn link">Skurliste</button>
         </Link>
-        <Link href="/postarkiv">
-          <button className="btn link">Søk i postarkiv</button>
-        </Link>
+        <div onClick={() => setPost2("")}>
+          <Link href="/postarkiv">
+            <button className="btn link">Søk i postarkiv</button>
+          </Link>
+        </div>
       </div>
       <style jsx>
         {`

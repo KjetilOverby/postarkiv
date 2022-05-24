@@ -30,6 +30,7 @@ const CreateMainPage = ({
   btnCopyPost,
   spesiellePlankeTykkelser,
   setSpesiellePlankeTykkelser,
+  setPost2,
 }) => {
   const [startFillRings, setStartFillRings] = useState();
 
@@ -119,6 +120,7 @@ const CreateMainPage = ({
           setStartRingsPanel={setStartRingsPanel}
           setRingShimsPanel={setRingShimsPanel}
           setRingShimsPanel2={setRingShimsPanel2}
+          setPost2={setPost2}
         />
         <MiddleComponent
           startFillRings={startFillRings}

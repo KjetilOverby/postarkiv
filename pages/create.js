@@ -7,7 +7,7 @@ const api = axios.create({
   baseURL: process.env.api,
 });
 
-const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyPost, getIdForEdit, endFillRingsCollection, setEndFillRingsCollection, rawRingsCollection, setRawRingsCollection}) => {
+const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyPost, getIdForEdit, endFillRingsCollection, setEndFillRingsCollection, rawRingsCollection, setRawRingsCollection, setPost2}) => {
   
   const [copyPost, setCopyPost] = useState()
   
@@ -186,6 +186,7 @@ useEffect(() => {
           btnCopyPost={btnCopyPost}
           spesiellePlankeTykkelser={spesiellePlankeTykkelser}
           setSpesiellePlankeTykkelser={setSpesiellePlankeTykkelser}
+          setPost2={setPost2}
         />
       </div>
       <style jsx>

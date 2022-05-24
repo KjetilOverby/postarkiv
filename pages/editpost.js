@@ -17,7 +17,8 @@ const Editpost = ({
   getIDforDe,
   getIdForEdit,
   getEditPost,
-  setGetEditPost
+  setGetEditPost,
+  setPost2
 }) => {
  
   const [startFillringsCollection, setStartFillringsCollection] = useState();
@@ -110,6 +111,7 @@ const [updateEditPost, setUpdateEditPost] = useState(false)
           setEndRingLabel={setEndRingLabel}
           headerDuplicate={headerDuplicate}
           saveUpdatedPost={saveUpdatedPost}
+          setPost2={setPost2}
         />
       </div>
       <style jsx>

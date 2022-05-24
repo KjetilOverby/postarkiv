@@ -3,7 +3,7 @@ import { BiMenu } from "react-icons/bi";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const MenuBtn = ({ deleteBtn, setBtnCopyPost, btnCopyPost }) => {
+const MenuBtn = ({ deleteBtn, setBtnCopyPost, btnCopyPost, setPost2 }) => {
   const router = useRouter();
   const [move, setMove] = useState("menu-box-animation-back");
 
@@ -29,9 +29,11 @@ const MenuBtn = ({ deleteBtn, setBtnCopyPost, btnCopyPost }) => {
           />
         </div>
         <div className={`menu-box ${move} }`}>
-          <Link href="/postarkiv">
-            <p className="tab">Søk i postarkiv</p>
-          </Link>
+          <div onClick={() => setPost2("")}>
+            <Link href="/postarkiv">
+              <p className="tab">Søk i postarkiv</p>
+            </Link>
+          </div>
           <Link href="/">
             <p className="tab">Startsiden</p>
           </Link>
