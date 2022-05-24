@@ -24,7 +24,8 @@ const Postoppsett = ({
   btnCopyPost,
   postBredde,
   post2,
-  setPost2
+  setPost2,
+  klasse
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const randomNumber = Math.floor(Math.random() * 2);
@@ -132,6 +133,7 @@ const Postoppsett = ({
         <div className="full-post-name">
 
         {post2 && <h1 className="post-name">{post2}x{postBredde} <span style={{color: 'yellow'}}>{(bladstamme + 1.4).toFixed(1)}</span></h1>}
+        {post2 && <p>Klasse: 4, 8400stokker</p>}
         {/* <p className="utfylling">Utfylling foran:</p>
         <p className="utfylling">Utfylling bak:</p> */}
         </div>

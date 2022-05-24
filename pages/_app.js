@@ -103,8 +103,9 @@ function MyApp({ Component, pageProps }) {
   const [getIdForEdit, setGetIdForEdit] = useState()
   const [postBredde, setPostBredde] = useState();
   const [post2, setPost2] = useState()
+ 
 
-  
+ 
 
   // Rediger
   const [treslag, setTreslag] = useState();
