@@ -89,6 +89,7 @@ const Postoppsett = ({
         <div className={`fillRingContainer ${animation}`}>
           {startRingsPostOppsett &&
             startRingsPostOppsett.map((item) => {
+             
               return (
                 <>
                   <div className={`fillRingContainer ${animation}`}>
@@ -99,6 +100,8 @@ const Postoppsett = ({
             })}
           {rawRingsPostOppsett &&
             rawRingsPostOppsett.map((item) => {
+           
+           
               return (
                 <>
                   <div className={`fillRingContainer ${animation}`}>
@@ -126,7 +129,12 @@ const Postoppsett = ({
               );
             })}
         </div>
-        {post2 && <h1 className="full-post-name">{post2}x{postBredde} <span style={{color: 'yellow'}}>{(bladstamme + 1.4).toFixed(1)}</span></h1>}
+        <div className="full-post-name">
+
+        {post2 && <h1 className="post-name">{post2}x{postBredde} <span style={{color: 'yellow'}}>{(bladstamme + 1.4).toFixed(1)}</span></h1>}
+        {/* <p className="utfylling">Utfylling foran:</p>
+        <p className="utfylling">Utfylling bak:</p> */}
+        </div>
         {user && user.sub === Users && (
           <div className="userContainer">
             <p className="bottom-text">
@@ -183,12 +191,19 @@ const Postoppsett = ({
            url(${background});
          background-size: cover;
        }
+       .post-name {
+        font-weight: 100;
+       }
        .full-post-name {
-         color: #fff;
+        color: #fff;
          position: absolute;
-         font-weight: 100;
+         
          bottom: 3rem;
          left: 2rem
+       }
+       .utfylling {
+         font-weight: 100;
+         font-size: .8rem
        }
        @keyframes slide {
          0% {

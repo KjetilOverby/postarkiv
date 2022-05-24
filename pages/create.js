@@ -11,12 +11,7 @@ const Create = ({startFillringsCollection, setStartFillringsCollection, btnCopyP
   
   const [copyPost, setCopyPost] = useState()
   
-
-
-
-  
-  
-  const [bladeDimension, setBladeDimension] = useState({ bladStamme: "" });
+ const [bladeDimension, setBladeDimension] = useState({ bladStamme: "" });
   const [headerString, setHeaderString] = useState();
 
   const [prosentValg, setProsentValg] = useState("");
