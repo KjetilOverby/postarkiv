@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }) {
       );
     } else if (randomNumber === 8) {
       setBackground(
-        "https://images.unsplash.com/photo-1515799251528-8e14681f214e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80"
+        "https://images.unsplash.com/photo-1575330741514-88046900ba72?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1466&q=80"
       );
     } else if (randomNumber === 9) {
       setBackground(
