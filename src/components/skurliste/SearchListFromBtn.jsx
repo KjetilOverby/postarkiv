@@ -15,6 +15,7 @@ const SearchListFromBtn = ({
   searchAllBlades,
   setCreateDate,
   setGetIdForEdit,
+  lists,
 }) => {
   const router = useRouter();
   return (
@@ -30,10 +31,12 @@ const SearchListFromBtn = ({
                 setEndRingsPostOppsett(item.endRings);
                 setBladstamme(item.blades.bladStamme);
                 setCreateDate(item.date);
+
                 router.push("/postoppsett");
                 setOpenSearchList(false);
                 setGetIdForEdit(item._id);
               };
+
               return (
                 <div
                   key={item.id}

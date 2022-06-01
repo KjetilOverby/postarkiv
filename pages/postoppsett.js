@@ -26,6 +26,13 @@ const Postoppsett = ({
   post2,
   setPost2,
   klasse,
+  antallStokk,
+  antallKubikk,
+  postKlasse,
+  postTreslag,
+  postKlType,
+  postKlBordMkv,
+  postAnm2
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const randomNumber = Math.floor(Math.random() * 2);
@@ -139,9 +146,13 @@ const Postoppsett = ({
               </span>
             </h1>
           )}
-          {/* {post2 && <p>Klasse: 4, 8400stokker</p>} */}
-          {/* <p className="utfylling">Utfylling foran:</p>
-        <p className="utfylling">Utfylling bak:</p> */}
+          {post2 && <div>
+            <p className="postText">Klasse: {postKlasse} {postTreslag} {postKlType}</p>
+            <p className="postText">Antall stokk: {antallStokk}, m3: {antallKubikk}</p>
+           <p className="postText">Anmerkning: {postKlBordMkv} {postAnm2}</p>
+            
+            </div>}
+          
         </div>
         {user && user.sub === Users && (
           <div className="userContainer">
@@ -195,6 +206,9 @@ const Postoppsett = ({
               ),
               url(${background});
             background-size: cover;
+          }
+          .postText {
+            font-size: .8rem
           }
           .post-name {
             font-weight: 100;

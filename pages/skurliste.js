@@ -29,7 +29,14 @@ const Skurliste = ({
   setGetIdForEdit, 
   setPostBredde,
   post2,
-  setPost2
+  setPost2,
+  setAntallStokk,
+  setAntallKubikk,
+  setPostKlasse,
+  setPostTreslag,
+  setPostklType,
+  setPostklBordMkv,
+  setPostAnm2
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const isMobile = useMediaQuery({ query: `(max-width: 550px)` });
@@ -77,6 +84,13 @@ const Skurliste = ({
           setPostBredde={setPostBredde}
           post2={post2}
           setPost2={setPost2}
+          setAntallStokk={setAntallStokk}
+          setAntallKubikk={setAntallKubikk}
+          setPostKlasse={setPostKlasse}
+          setPostTreslag={setPostTreslag}
+          setPostklType={setPostklType}
+          setPostklBordMkv={setPostklBordMkv}
+          setPostAnm2={setPostAnm2}
         />}
       </div>
       {isMobile && <SkurlisteMobil  postList={postList}

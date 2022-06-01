@@ -35,6 +35,13 @@ const SkurlisteComponent = ({
   setPostBredde,
   post2,
   setPost2,
+  setAntallStokk,
+  setAntallKubikk,
+  setPostKlasse,
+  setPostTreslag,
+  setPostklType,
+  setPostklBordMkv,
+  setPostAnm2,
 }) => {
   const { lists } = useContext(AppData);
   const [percent, setPercent] = useState();
@@ -73,6 +80,8 @@ const SkurlisteComponent = ({
           searchAllBlades={searchAllBlades}
           setCreateDate={setCreateDate}
           setGetIdForEdit={setGetIdForEdit}
+          setAntallStokk={setAntallStokk}
+          lists={lists}
         />
       )}
       {lists ? (
@@ -142,6 +151,13 @@ const SkurlisteComponent = ({
                 setBlade(item.blad);
                 setOpenSearchList(true);
                 setPostBredde(item.breddePost);
+                setAntallStokk(item.ant);
+                setAntallKubikk(item.m3);
+                setPostKlasse(item.klasse);
+                setPostTreslag(item.treslag);
+                setPostklType(item.klType);
+                setPostklBordMkv(item.anm);
+                setPostAnm2(item.anm2);
               };
               const openDeleteModal = () => {
                 setOpenDeleteModal(true);

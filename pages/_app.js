@@ -104,7 +104,17 @@ function MyApp({ Component, pageProps }) {
   const [postBredde, setPostBredde] = useState();
   const [post2, setPost2] = useState()
  
+// Data til postoppsett
 
+const [antallStokk, setAntallStokk] = useState()
+const [antallKubikk, setAntallKubikk] = useState()
+const [postKlasse, setPostKlasse] = useState()
+const [postTreslag, setPostTreslag] = useState()
+const [postKlType, setPostklType] = useState()
+const [postKlBordMkv, setPostklBordMkv] = useState()
+const [postAnm2, setPostAnm2] = useState()
+
+const [updateDate, setUpdateDate] =useState()
  
 
   // Rediger
@@ -525,7 +535,20 @@ function MyApp({ Component, pageProps }) {
             postBredde={postBredde}
             post2={post2}
             setPost2={setPost2}
-            
+            antallStokk={antallStokk}
+            setAntallStokk={setAntallStokk}
+            antallKubikk={antallKubikk}
+            setAntallKubikk={setAntallKubikk}
+            postKlasse={postKlasse}
+            setPostKlasse={setPostKlasse}
+            postTreslag={postTreslag}
+            setPostTreslag={setPostTreslag}
+            postKlType={postKlType}
+            setPostklType={setPostklType}
+            setPostklBordMkv={setPostklBordMkv}
+            postKlBordMkv={postKlBordMkv}
+            setPostAnm2={setPostAnm2}
+            postAnm2={postAnm2}
           />
         </AppData.Provider>
       </Auth0Provider>
