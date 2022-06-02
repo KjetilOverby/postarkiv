@@ -8,6 +8,7 @@ import Link from "next/link";
 import ModalComponent from "../src/components/common/ModalComponent";
 import dateFormat from "dateformat";
 import MenuBtn from "../src/components/postoppsett/MenuBtn";
+import { FaClipboardList } from 'react-icons/fa';
 
 const Postoppsett = ({
   headerPostOppsett,
@@ -32,11 +33,15 @@ const Postoppsett = ({
   postTreslag,
   postKlType,
   postKlBordMkv,
-  postAnm2
+  postAnm2,
+  lists
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const randomNumber = Math.floor(Math.random() * 2);
   const currentYear = new Date().getFullYear();
+
+  const [openSkurliste, setOpenSkurliste] = useState(false)
+  const [iconColor, setIconColor] = useState('off')
 
   const [animation, setAnimation] = useState("");
   useEffect(() => {
@@ -46,6 +51,17 @@ const Postoppsett = ({
       setAnimation("ani2");
     }
   });
+
+ const skurlisteBtnHandler = () => {
+   setOpenSkurliste(!openSkurliste)
+
+ 
+     setIconColor('on')
+    setTimeout(() => {
+      setIconColor('off')
+    }, 5000);
+
+ }
 
   return (
     <>
@@ -61,32 +77,12 @@ const Postoppsett = ({
           <Link href="/skurliste">
             <button className="btn btn1">Skurliste</button>
           </Link>
-          {/*  <Link href="/postarkiv">
-            <button className="btn btn2">Søk i postarkivet</button>
-          </Link>
-          <Link href="/">
-            <button className="btn btn3">Startsiden</button>
-          </Link> */}
+         <div className={`icon-btn-container ${iconColor}`} onClick={skurlisteBtnHandler}>
+          <FaClipboardList style={{fontSize: '1.5rem'}} />
+         </div>
         </div>
         <div className="info-box2">
-          {/* {user && user.sub === process.env.USER_SUB && (
-            <>
-            <button
-              onClick={() => setOpenDeleteModal(true)}
-              className="btn btn-delete"
-            >
-              Slett denn posten
-            </button>
-            <Link href='editpost'>
-            <button
-             
-              className="btn btn-delete"
-            >
-              Rediger posten
-            </button>
-            </Link>
-            </>
-          )} */}
+        
           <p className="info-text">
             Opprettelsesdato:{" "}
             {createDate === undefined
@@ -176,7 +172,51 @@ const Postoppsett = ({
             deleteHandler={deletePostHandler}
           />
         )}
+{openSkurliste &&  
+  <div className="skurliste-container">
+  <table>
+  <tr >
+      <th className="cell">Treslag</th>
+      <th className="cell">Klasse</th>
+      <th className="cell">Ant</th>
+      <th className="cell">m3</th>
+      <th className="cell">status</th>
+      <th className="cell">post</th>
+      <th className="cell">X-Log</th>
+      <th className="cell">bord VS-66</th>
+      <th className="cell">bord MKV</th>
+    </tr>
+          {lists && 
+            lists.map((item) => {
+              return (
+                <>
+                   
+   
+    <tr key={item._id}>
+      <td className="data-cell">{item.treslag}</td>
+      <td className="data-cell">{item.klasse}</td>
+      <td className="data-cell">{item.ant}</td>
+      <td className="data-cell">{item.m3}</td>
+      <td className="data-cell">{item.status}</td>
+      <td className="data-cell">{item.post}x{item.breddePost}-{item.prosent}%</td>
+      <td className="data-cell">{item.xLog}</td>
+      <td className="data-cell">{item.vs66 ? item.vs66 : 'Ingen bord'}</td>
+      <td className="data-cell">{item.mkvBord ? item.mkvBord : 'Ingen bord'}</td>
+    </tr>
+   
+  
+                
+                </>
+              )
+            })
+          }
+          </table> 
+     </div>
+}
       </div>
+   
+
+     
       <style jsx>
         {`
           .header {
@@ -224,6 +264,42 @@ const Postoppsett = ({
             font-weight: 100;
             font-size: 0.8rem;
           }
+
+          .skurliste-container {
+            position: absolute;
+            bottom: .5rem;
+            right: .5rem;
+            background: rgba(0,0,0,.3);
+            animation: fadeInUp 1s;
+          
+          }
+          .data-cell {
+           border-right: 1px solid grey;
+           border-bottom: 1px solid grey;
+            padding: 5px;
+            color: white;
+          }
+          .cell {
+            border-right: 1px solid grey;
+            border-bottom: 1px solid grey;
+            padding: 5px;
+            color: yellow
+          }
+          .icon-btn-container {
+            display: grid;
+            place-items: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+           
+            
+          }
+          .on {
+            background: blue
+          }
+          .off {
+            background: rgba(0,0,0,.7)
+          }
           @keyframes slide {
             0% {
               transform: translateY(40rem);
@@ -232,6 +308,9 @@ const Postoppsett = ({
               transform: translateY(0rem);
             }
           }
+          @keyframes fadeInUp {
+             0% { opacity: 0;
+               -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0); } 100% { opacity: 1; -webkit-transform: none; transform: none; } }
 
           @keyframes bounceInRight {
             0%,

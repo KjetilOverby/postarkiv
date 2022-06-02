@@ -549,6 +549,7 @@ const [updateDate, setUpdateDate] =useState()
             postKlBordMkv={postKlBordMkv}
             setPostAnm2={setPostAnm2}
             postAnm2={postAnm2}
+            lists={lists}
           />
         </AppData.Provider>
       </Auth0Provider>
