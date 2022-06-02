@@ -40,8 +40,9 @@ const Postoppsett = ({
   const randomNumber = Math.floor(Math.random() * 2);
   const currentYear = new Date().getFullYear();
 
-  const [openSkurliste, setOpenSkurliste] = useState(false)
+  const [openSkurliste, setOpenSkurliste] = useState(true)
   const [iconColor, setIconColor] = useState('off')
+  const [cellColor, setCellColor] = useState('')
 
   const [animation, setAnimation] = useState("");
   useEffect(() => {
@@ -172,36 +173,38 @@ const Postoppsett = ({
             deleteHandler={deletePostHandler}
           />
         )}
-{openSkurliste &&  
+{openSkurliste && 
   <div className="skurliste-container">
+<p className="skurlisteHeader">SKURLISTE</p> 
   <table>
   <tr >
-      <th className="cell">Treslag</th>
-      <th className="cell">Klasse</th>
+      <th className="cell">Slag</th>
+      <th className="cell">Kl</th>
       <th className="cell">Ant</th>
       <th className="cell">m3</th>
       <th className="cell">status</th>
       <th className="cell">post</th>
       <th className="cell">X-Log</th>
-      <th className="cell">bord VS-66</th>
-      <th className="cell">bord MKV</th>
+      <th className="cell">VS-66</th>
+      <th className="cell">MKV</th>
     </tr>
           {lists && 
             lists.map((item) => {
+           
               return (
                 <>
                    
    
     <tr key={item._id}>
-      <td className="data-cell">{item.treslag}</td>
-      <td className="data-cell">{item.klasse}</td>
-      <td className="data-cell">{item.ant}</td>
-      <td className="data-cell">{item.m3}</td>
-      <td className="data-cell">{item.status}</td>
-      <td className="data-cell">{item.post}x{item.breddePost}-{item.prosent}%</td>
-      <td className="data-cell">{item.xLog}</td>
-      <td className="data-cell">{item.vs66 ? item.vs66 : 'Ingen bord'}</td>
-      <td className="data-cell">{item.mkvBord ? item.mkvBord : 'Ingen bord'}</td>
+      <td className={`data-cell ${item.progress}`}>{item.treslag}</td>
+      <td className={`data-cell ${item.progress}`}>{item.klasse}</td>
+      <td className={`data-cell ${item.progress}`}>{item.ant}</td>
+      <td className={`data-cell ${item.progress}`}>{item.m3}</td>
+      <td className={`data-cell ${item.progress}`}>{item.status}</td>
+      <td className={`data-cell ${item.progress}`}>{item.post}x{item.breddePost}-{item.prosent}%</td>
+      <td className={`data-cell ${item.progress}`}>{item.xLog}</td>
+      <td className={`data-cell ${item.progress}`}>{item.vs66 ? item.vs66 : 'X'}</td>
+      <td className={`data-cell ${item.progress}`}>{item.mkvBord ? item.mkvBord : 'X'}</td>
     </tr>
    
   
@@ -274,16 +277,25 @@ const Postoppsett = ({
           
           }
           .data-cell {
-           border-right: 1px solid grey;
-           border-bottom: 1px solid grey;
+           border-right: 1px solid #3f3f3f;
+           border-bottom: 1px solid #3f3f3f;
             padding: 5px;
             color: white;
+            font-size: .8rem
           }
+          
           .cell {
-            border-right: 1px solid grey;
-            border-bottom: 1px solid grey;
+            border-right: 1px solid #3f3f3f;
+            border-bottom: 1px solid #3f3f3f;
             padding: 5px;
-            color: yellow
+            color: orangered;
+            font-size: .8rem
+          }
+          .running {
+            color: #37f608   
+          }
+          .finished {
+            color:   #595959  
           }
           .icon-btn-container {
             display: grid;
@@ -294,11 +306,18 @@ const Postoppsett = ({
            
             
           }
+          .icon-btn-container:hover {
+           cursor: pointer
+          }
           .on {
             background: blue
           }
           .off {
-            background: rgba(0,0,0,.7)
+            background: #2e2e2e 
+          }
+          .skurlisteHeader {
+            color: orangered;
+            margin: .5rem
           }
           @keyframes slide {
             0% {
@@ -416,7 +435,7 @@ const Postoppsett = ({
           }
           .userContainer {
             position: absolute;
-            bottom: 0;
+            bottom: .5rem;
             left: 0;
             color: #bdbdbd;
             animation: move 4s forwards;
