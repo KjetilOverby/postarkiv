@@ -49,6 +49,11 @@ const Blade = ({ bladstamme }) => {
             transform: translateX(-50%);
             color: #ffffff;
           }
+          @media (min-width: 2200px) {
+            .blade {
+              height: 46rem;
+            }
+          }
           @media (max-width: 1500px) {
             .blade {
               height: 30rem;

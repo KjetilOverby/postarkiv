@@ -147,6 +147,16 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
             transform: translateX(-50%);
             color: #c2c2c2;
           }
+          @media (min-width: 2200px) {
+            .rawRing {
+              height: 18rem;
+              width: 6.8rem;
+              font-size: 2.4rem;
+            }
+            .blade {
+              height: 46rem;
+            }
+          }
           @media (max-width: 1500px) {
             .rawRing {
               height: 12rem;

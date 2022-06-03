@@ -8,7 +8,7 @@ import Link from "next/link";
 import ModalComponent from "../src/components/common/ModalComponent";
 import dateFormat from "dateformat";
 import MenuBtn from "../src/components/postoppsett/MenuBtn";
-import { FaClipboardList } from 'react-icons/fa';
+import { FaClipboardList } from "react-icons/fa";
 
 const Postoppsett = ({
   headerPostOppsett,
@@ -34,15 +34,15 @@ const Postoppsett = ({
   postKlType,
   postKlBordMkv,
   postAnm2,
-  lists
+  lists,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const randomNumber = Math.floor(Math.random() * 2);
   const currentYear = new Date().getFullYear();
 
-  const [openSkurliste, setOpenSkurliste] = useState(true)
-  const [iconColor, setIconColor] = useState('off')
-  const [cellColor, setCellColor] = useState('')
+  const [openSkurliste, setOpenSkurliste] = useState(true);
+  const [iconColor, setIconColor] = useState("off");
+  const [cellColor, setCellColor] = useState("");
 
   const [animation, setAnimation] = useState("");
   useEffect(() => {
@@ -53,16 +53,14 @@ const Postoppsett = ({
     }
   });
 
- const skurlisteBtnHandler = () => {
-   setOpenSkurliste(!openSkurliste)
+  const skurlisteBtnHandler = () => {
+    setOpenSkurliste(!openSkurliste);
 
- 
-     setIconColor('on')
+    setIconColor("on");
     setTimeout(() => {
-      setIconColor('off')
+      setIconColor("off");
     }, 5000);
-
- }
+  };
 
   return (
     <>
@@ -78,12 +76,14 @@ const Postoppsett = ({
           <Link href="/skurliste">
             <button className="btn btn1">Skurliste</button>
           </Link>
-         <div className={`icon-btn-container ${iconColor}`} onClick={skurlisteBtnHandler}>
-          <FaClipboardList style={{fontSize: '1.5rem'}} />
-         </div>
+          <div
+            className={`icon-btn-container ${iconColor}`}
+            onClick={skurlisteBtnHandler}
+          >
+            <FaClipboardList style={{ fontSize: "1.5rem" }} />
+          </div>
         </div>
         <div className="info-box2">
-        
           <p className="info-text">
             Opprettelsesdato:{" "}
             {createDate === undefined
@@ -143,13 +143,19 @@ const Postoppsett = ({
               </span>
             </h1>
           )}
-          {post2 && <div>
-            <p className="postText">Klasse: {postKlasse} {postTreslag} {postKlType}</p>
-            <p className="postText">Antall stokk: {antallStokk}, m3: {antallKubikk}</p>
-           <p className="postText">Anmerkning: {postKlBordMkv} {postAnm2}</p>
-            
-            </div>}
-          
+          {post2 && (
+            <div>
+              <p className="postText">
+                Klasse: {postKlasse} {postTreslag} {postKlType}
+              </p>
+              <p className="postText">
+                Antall stokk: {antallStokk}, m3: {antallKubikk}
+              </p>
+              <p className="postText">
+                Anmerkning: {postKlBordMkv} {postAnm2}
+              </p>
+            </div>
+          )}
         </div>
         {user && user.sub === Users && (
           <div className="userContainer">
@@ -173,53 +179,62 @@ const Postoppsett = ({
             deleteHandler={deletePostHandler}
           />
         )}
-{openSkurliste && 
-  <div className="skurliste-container">
-<p className="skurlisteHeader">SKURLISTE</p> 
-  <table>
-  <tr >
-      <th className="cell">Slag</th>
-      <th className="cell">Kl</th>
-      <th className="cell">Ant</th>
-      <th className="cell">m3</th>
-      <th className="cell">status</th>
-      <th className="cell">post</th>
-      <th className="cell">X-Log</th>
-      <th className="cell">VS-66</th>
-      <th className="cell">MKV</th>
-    </tr>
-          {lists && 
-            lists.map((item) => {
-           
-              return (
-                <>
-                   
-   
-    <tr key={item._id}>
-      <td className={`data-cell ${item.progress}`}>{item.treslag}</td>
-      <td className={`data-cell ${item.progress}`}>{item.klasse}</td>
-      <td className={`data-cell ${item.progress}`}>{item.ant}</td>
-      <td className={`data-cell ${item.progress}`}>{item.m3}</td>
-      <td className={`data-cell ${item.progress}`}>{item.status}</td>
-      <td className={`data-cell ${item.progress}`}>{item.post}x{item.breddePost}-{item.prosent}%</td>
-      <td className={`data-cell ${item.progress}`}>{item.xLog}</td>
-      <td className={`data-cell ${item.progress}`}>{item.vs66 ? item.vs66 : 'X'}</td>
-      <td className={`data-cell ${item.progress}`}>{item.mkvBord ? item.mkvBord : 'X'}</td>
-    </tr>
-   
-  
-                
-                </>
-              )
-            })
-          }
-          </table> 
-     </div>
-}
+        {openSkurliste && (
+          <div className="skurliste-container">
+            <p className="skurlisteHeader">SKURLISTE</p>
+            <table>
+              <tr>
+                <th className="cell">Slag</th>
+                <th className="cell">Kl</th>
+                <th className="cell">Ant</th>
+                <th className="cell">m3</th>
+                <th className="cell">status</th>
+                <th className="cell">post</th>
+                <th className="cell">X-Log</th>
+                <th className="cell">VS-66</th>
+                <th className="cell">MKV</th>
+              </tr>
+              {lists &&
+                lists.map((item) => {
+                  return (
+                    <>
+                      <tr key={item._id}>
+                        <td className={`data-cell ${item.progress}`}>
+                          {item.treslag}
+                        </td>
+                        <td className={`data-cell ${item.progress}`}>
+                          {item.klasse}
+                        </td>
+                        <td className={`data-cell ${item.progress}`}>
+                          {item.ant}
+                        </td>
+                        <td className={`data-cell ${item.progress}`}>
+                          {item.m3}
+                        </td>
+                        <td className={`data-cell ${item.progress}`}>
+                          {item.status}
+                        </td>
+                        <td className={`data-cell ${item.progress}`}>
+                          {item.post}x{item.breddePost}-{item.prosent}%
+                        </td>
+                        <td className={`data-cell ${item.progress}`}>
+                          {item.xLog}
+                        </td>
+                        <td className={`data-cell ${item.progress}`}>
+                          {item.vs66 ? item.vs66 : "X"}
+                        </td>
+                        <td className={`data-cell ${item.progress}`}>
+                          {item.mkvBord ? item.mkvBord : "X"}
+                        </td>
+                      </tr>
+                    </>
+                  );
+                })}
+            </table>
+          </div>
+        )}
       </div>
-   
 
-     
       <style jsx>
         {`
           .header {
@@ -251,7 +266,7 @@ const Postoppsett = ({
             background-size: cover;
           }
           .postText {
-            font-size: .8rem
+            font-size: 0.8rem;
           }
           .post-name {
             font-weight: 100;
@@ -270,32 +285,31 @@ const Postoppsett = ({
 
           .skurliste-container {
             position: absolute;
-            bottom: .5rem;
-            right: .5rem;
-            background: rgba(0,0,0,.3);
+            bottom: 0.5rem;
+            right: 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1s;
-          
           }
           .data-cell {
-           border-right: 1px solid #3f3f3f;
-           border-bottom: 1px solid #3f3f3f;
+            border-right: 1px solid #3f3f3f;
+            border-bottom: 1px solid #3f3f3f;
             padding: 5px;
             color: white;
-            font-size: .8rem
+            font-size: 0.8rem;
           }
-          
+
           .cell {
             border-right: 1px solid #3f3f3f;
             border-bottom: 1px solid #3f3f3f;
             padding: 5px;
             color: orangered;
-            font-size: .8rem
+            font-size: 0.8rem;
           }
           .running {
-            color: #37f608   
+            color: #37f608;
           }
           .finished {
-            color:   #595959  
+            color: #595959;
           }
           .icon-btn-container {
             display: grid;
@@ -303,21 +317,19 @@ const Postoppsett = ({
             width: 3rem;
             height: 3rem;
             border-radius: 50%;
-           
-            
           }
           .icon-btn-container:hover {
-           cursor: pointer
+            cursor: pointer;
           }
           .on {
-            background: blue
+            background: blue;
           }
           .off {
-            background: #2e2e2e 
+            background: #2e2e2e;
           }
           .skurlisteHeader {
             color: orangered;
-            margin: .5rem
+            margin: 0.5rem;
           }
           @keyframes slide {
             0% {
@@ -328,8 +340,17 @@ const Postoppsett = ({
             }
           }
           @keyframes fadeInUp {
-             0% { opacity: 0;
-               -webkit-transform: translate3d(0, 100%, 0); transform: translate3d(0, 100%, 0); } 100% { opacity: 1; -webkit-transform: none; transform: none; } }
+            0% {
+              opacity: 0;
+              -webkit-transform: translate3d(0, 100%, 0);
+              transform: translate3d(0, 100%, 0);
+            }
+            100% {
+              opacity: 1;
+              -webkit-transform: none;
+              transform: none;
+            }
+          }
 
           @keyframes bounceInRight {
             0%,
@@ -435,7 +456,7 @@ const Postoppsett = ({
           }
           .userContainer {
             position: absolute;
-            bottom: .5rem;
+            bottom: 0.5rem;
             left: 0;
             color: #bdbdbd;
             animation: move 4s forwards;
@@ -549,6 +570,32 @@ const Postoppsett = ({
           }
            {
           }
+          @media (min-width: 2200px) {
+            .data-cell {
+              border-right: 1px solid #3f3f3f;
+              border-bottom: 1px solid #3f3f3f;
+              padding: 5px;
+              color: white;
+              font-size: 1rem;
+              font-weight: 400;
+            }
+
+            .cell {
+              border-right: 1px solid #3f3f3f;
+              border-bottom: 1px solid #3f3f3f;
+              padding: 5px;
+              color: orangered;
+              font-size: 1rem;
+              font-weight: 400;
+            }
+            .running {
+              color: #37f608;
+            }
+            .finished {
+              color: #595959;
+            }
+          }
+
           @media (max-width: 765px) {
             .header {
               font-weight: 100;

@@ -34,6 +34,13 @@ const Fillrings = ({ value }) => {
             background-size: cover;
             background-position: center;
           }
+          @media (min-width: 2200px) {
+            .fillRing {
+              height: 18rem;
+              width: 6.8rem;
+              font-size: 2.4rem;
+            }
+          }
           @media (max-width: 1500px) {
             .fillRing {
               height: 12rem;
