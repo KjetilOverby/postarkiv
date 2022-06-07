@@ -35,6 +35,8 @@ const Postoppsett = ({
   postKlBordMkv,
   postAnm2,
   lists,
+  setOpenSearchList,
+ openSearchList
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const randomNumber = Math.floor(Math.random() * 2);
