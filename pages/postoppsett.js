@@ -181,6 +181,7 @@ const Postoppsett = ({
         )}
         {openSkurliste && (
           <div className="skurliste-container">
+            
             <p className="skurlisteHeader">SKURLISTE</p>
             <table>
               <tr>
@@ -214,7 +215,7 @@ const Postoppsett = ({
                         <td className={`data-cell ${item.progress}`}>
                           {item.status}
                         </td>
-                        <td className={`data-cell ${item.progress}`}>
+                        <td className={`data-cell data-post ${item.progress}`}>
                           {item.post}x{item.breddePost}-{item.prosent}%
                         </td>
                         <td className={`data-cell ${item.progress}`}>
@@ -237,6 +238,7 @@ const Postoppsett = ({
 
       <style jsx>
         {`
+      
           .header {
             color: #fff;
             animation: bounceInRight 1.2s forwards;
@@ -265,6 +267,10 @@ const Postoppsett = ({
               url(${background});
             background-size: cover;
           }
+          .data-post:hover {
+            cursor: pointer;
+            color: red
+          }
           .postText {
             font-size: 0.8rem;
           }
@@ -289,6 +295,10 @@ const Postoppsett = ({
             right: 0.5rem;
             background: rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1s;
+            height: 15rem;
+            overflow: scroll;
+            overflow-x: hidden;
+            scrollbar-width: none
           }
           .data-cell {
             border-right: 1px solid #3f3f3f;
