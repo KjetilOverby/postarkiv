@@ -156,7 +156,20 @@ const RawRings = ({ rawValue, bladstamme, ring, shims2, shims3, shims1 }) => {
             .blade {
               height: 46rem;
             }
+            .ring {
+              top: 19rem;
+            }
+            .shims1 {
+              top: 20.5rem;
+            }
+            .shims2 {
+              top: 22rem;
+            }
+            .shims3 {
+              top: 23.5rem;
+            }
           }
+
           @media (max-width: 1500px) {
             .rawRing {
               height: 12rem;
