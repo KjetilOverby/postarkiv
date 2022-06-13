@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Blade from "../src/components/poster/Blade";
 import Fillrings from "../src/components/poster/Fillrings";
 import RawRings from "../src/components/poster/RawRings";
@@ -9,6 +9,8 @@ import ModalComponent from "../src/components/common/ModalComponent";
 import dateFormat from "dateformat";
 import MenuBtn from "../src/components/postoppsett/MenuBtn";
 import { FaClipboardList } from "react-icons/fa";
+import SearchListFromBtn from "../src/components/skurliste/SearchListFromBtn";
+import { AppData } from "../src/contexts/AppData";
 
 const Postoppsett = ({
   headerPostOppsett,
@@ -34,10 +36,22 @@ const Postoppsett = ({
   postKlType,
   postKlBordMkv,
   postAnm2,
-  lists,
   setOpenSearchList,
- openSearchList
+ openSearchList,
+ filteredPostList,
+ setPostOppsett,
+ setHeaderPostOppsett,
+ setStartRingsPostOppsett,
+ setRawRingsPostOppsett,
+ setEndRingsPostOppsett,
+ setBladstamme,
+ setCreateDate,
+ setGetIdForEdit,
+ setAntallStokk,
+ postList,
+ setFilteredPostList,
 }) => {
+  const { lists } = useContext(AppData);
   const { user, isAuthenticated } = useAuth0();
   const randomNumber = Math.floor(Math.random() * 2);
   const currentYear = new Date().getFullYear();
@@ -45,6 +59,11 @@ const Postoppsett = ({
   const [openSkurliste, setOpenSkurliste] = useState(true);
   const [iconColor, setIconColor] = useState("off");
   const [cellColor, setCellColor] = useState("");
+
+
+  const [post, setPost] = useState();
+  const [percent, setPercent] = useState();
+  const [blade, setBlade] = useState();
 
   const [animation, setAnimation] = useState("");
   useEffect(() => {
@@ -54,6 +73,7 @@ const Postoppsett = ({
       setAnimation("ani2");
     }
   });
+ 
 
   const skurlisteBtnHandler = () => {
     setOpenSkurliste(!openSkurliste);
@@ -64,8 +84,41 @@ const Postoppsett = ({
     }, 5000);
   };
 
+  const searchAllBlades = () => {
+    setFilteredPostList(
+      postList.filter((item) => item.header.includes(`${post}-${percent}%`))
+    );
+  };
+
+  useEffect(() => {
+    if (postList) {
+      setFilteredPostList(
+        postList.filter((item) =>
+          item.header.includes(`${post}-${percent}%-${blade}`)
+        )
+      );
+    }
+  }, [post ]);
+  
+
   return (
     <>
+    {openSearchList && <SearchListFromBtn  filteredPostList={filteredPostList}
+          setPostOppsett={setPostOppsett}
+          setHeaderPostOppsett={setHeaderPostOppsett}
+          setStartRingsPostOppsett={setStartRingsPostOppsett}
+          setRawRingsPostOppsett={setRawRingsPostOppsett}
+          setEndRingsPostOppsett={setEndRingsPostOppsett}
+          setBladstamme={setBladstamme}
+          setOpenSearchList={setOpenSearchList}
+          searchAllBlades={searchAllBlades}
+          setCreateDate={setCreateDate}
+          setGetIdForEdit={setGetIdForEdit}
+          setAntallStokk={setAntallStokk}
+          lists={lists}
+    
+    />}
+   
       {user && user.sub === process.env.USER_SUB && (
         <MenuBtn
           setBtnCopyPost={setBtnCopyPost}
@@ -183,8 +236,7 @@ const Postoppsett = ({
         )}
         {openSkurliste && (
           <div className="skurliste-container">
-            
-            <p className="skurlisteHeader">SKURLISTE</p>
+          
             <table>
               <tr>
                 <th className="cell">Slag</th>
@@ -199,6 +251,12 @@ const Postoppsett = ({
               </tr>
               {lists &&
                 lists.map((item) => {
+                  const getPostHandler = () => {
+                    setPost(item.post);
+                    setPercent(item.prosent);
+                    setBlade(item.blad);
+                    setOpenSearchList(true);
+                  };
                   return (
                     <>
                       <tr key={item._id}>
@@ -217,7 +275,7 @@ const Postoppsett = ({
                         <td className={`data-cell ${item.progress}`}>
                           {item.status}
                         </td>
-                        <td className={`data-cell data-post ${item.progress}`}>
+                        <td onClick={getPostHandler} className={`data-cell data-post ${item.progress}`}>
                           {item.post}x{item.breddePost}-{item.prosent}%
                         </td>
                         <td className={`data-cell ${item.progress}`}>

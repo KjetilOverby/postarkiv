@@ -103,6 +103,9 @@ const SearchListFromBtn = ({
             display: flex;
             flex-direction: column;
             align-items: center;
+            scrollbar-width: none;
+            overflow-y: hidden;
+            overflow-x: hidden;
           }
           .header {
             margin-bottom: 2rem;
@@ -167,13 +170,14 @@ const SearchListFromBtn = ({
             background-image: linear-gradient(
               to top,
               #ffffff 0%,
-              #aad8b3 1%,
-              #53b368 26%,
-              #bde6ca 48%,
-              #9debc7 75%,
-              #499481 100%
+              rgb(131, 173, 116) 1%,
+              #bedaba 26%,
+              #efefef 48%,
+              #d9d9d9 75%,
+              #77c57a 100%
             );
             position: relative;
+            color: #333;
           }
           .ring-container {
             display: flex;
@@ -181,10 +185,11 @@ const SearchListFromBtn = ({
           .rawGauge {
             position: absolute;
             top: -1.2rem;
+            color: #fff;
           }
           .post-container {
             margin-bottom: 5rem;
-            transition: 0.5s;
+            transition: 0.1s;
             display: flex;
             flex-direction: column;
             justify-content: center;
