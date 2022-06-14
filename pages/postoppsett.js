@@ -87,7 +87,7 @@ const Postoppsett = ({
     } else if (randomNumber === 1) {
       setAnimation("ani2");
     }
-  });
+  }, []);
  
 
   const skurlisteBtnHandler = () => {
@@ -425,7 +425,7 @@ const Postoppsett = ({
             right: 0.5rem;
             background: rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1s;
-            height: 15rem;
+            max-height: 15rem;
             overflow: scroll;
             overflow-x: hidden;
             scrollbar-width: none

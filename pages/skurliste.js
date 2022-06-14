@@ -127,7 +127,8 @@ const Skurliste = ({
           .container {
            padding: 1rem 3rem;
            min-height: 100vh;
-           background: linear-gradient(white, dodgerblue)
+           background: url("https://images.unsplash.com/photo-1421435371524-d26441ec7dda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80");
+           background-size: cover
           }
           .header {
           }
