@@ -20,7 +20,6 @@ const SearchListFromBtn = ({
   writeData,
   postOppsett,
 }) => {
-  // test
   const router = useRouter();
   return (
     <>
