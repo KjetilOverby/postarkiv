@@ -16,6 +16,9 @@ const SearchListFromBtn = ({
   setCreateDate,
   setGetIdForEdit,
   lists,
+  setWriteData,
+  writeData,
+  postOppsett,
 }) => {
   const router = useRouter();
   return (
@@ -35,6 +38,10 @@ const SearchListFromBtn = ({
                 router.push("/postoppsett");
                 setOpenSearchList(false);
                 setGetIdForEdit(item._id);
+
+                if (postOppsett) {
+                  setWriteData(!writeData);
+                }
               };
 
               return (
