@@ -125,7 +125,9 @@ const Skurliste = ({
             width: 10rem;
           }
           .container {
-            margin: 1rem 3rem;
+           padding: 1rem 3rem;
+           min-height: 100vh;
+           background: linear-gradient(white, dodgerblue)
           }
           .header {
           }

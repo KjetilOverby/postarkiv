@@ -425,7 +425,7 @@ const SkurlisteComponent = ({
             grid-gap: 2px 1px;
             border: 1px solid #757575;
             width: 100%;
-            box-shadow: 10px 10px 20px grey;
+            box-shadow: 2px 2px 10px grey;
           }
           .input {
             width: 4rem;
