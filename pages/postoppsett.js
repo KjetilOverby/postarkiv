@@ -37,19 +37,19 @@ const Postoppsett = ({
   postKlBordMkv,
   postAnm2,
   setOpenSearchList,
- openSearchList,
- filteredPostList,
- setPostOppsett,
- setHeaderPostOppsett,
- setStartRingsPostOppsett,
- setRawRingsPostOppsett,
- setEndRingsPostOppsett,
- setBladstamme,
- setCreateDate,
- setGetIdForEdit,
- setAntallStokk,
- postList,
- setFilteredPostList,
+  openSearchList,
+  filteredPostList,
+  setPostOppsett,
+  setHeaderPostOppsett,
+  setStartRingsPostOppsett,
+  setRawRingsPostOppsett,
+  setEndRingsPostOppsett,
+  setBladstamme,
+  setCreateDate,
+  setGetIdForEdit,
+  setAntallStokk,
+  postList,
+  setFilteredPostList,
 }) => {
   const { lists } = useContext(AppData);
   const { user, isAuthenticated } = useAuth0();
@@ -59,7 +59,6 @@ const Postoppsett = ({
   const [openSkurliste, setOpenSkurliste] = useState(true);
   const [iconColor, setIconColor] = useState("off");
   const [cellColor, setCellColor] = useState("");
-
 
   const [post, setPost] = useState();
   const [percent, setPercent] = useState();
@@ -72,8 +71,7 @@ const Postoppsett = ({
     } else if (randomNumber === 1) {
       setAnimation("ani2");
     }
-  });
- 
+  }, []);
 
   const skurlisteBtnHandler = () => {
     setOpenSkurliste(!openSkurliste);
@@ -98,12 +96,13 @@ const Postoppsett = ({
         )
       );
     }
-  }, [post ]);
-  
+  }, [post]);
 
   return (
     <>
-    {openSearchList && <SearchListFromBtn  filteredPostList={filteredPostList}
+      {openSearchList && (
+        <SearchListFromBtn
+          filteredPostList={filteredPostList}
           setPostOppsett={setPostOppsett}
           setHeaderPostOppsett={setHeaderPostOppsett}
           setStartRingsPostOppsett={setStartRingsPostOppsett}
@@ -116,9 +115,9 @@ const Postoppsett = ({
           setGetIdForEdit={setGetIdForEdit}
           setAntallStokk={setAntallStokk}
           lists={lists}
-    
-    />}
-   
+        />
+      )}
+
       {user && user.sub === process.env.USER_SUB && (
         <MenuBtn
           setBtnCopyPost={setBtnCopyPost}
@@ -236,7 +235,6 @@ const Postoppsett = ({
         )}
         {openSkurliste && (
           <div className="skurliste-container">
-          
             <table>
               <tr>
                 <th className="cell">Slag</th>
@@ -275,7 +273,10 @@ const Postoppsett = ({
                         <td className={`data-cell ${item.progress}`}>
                           {item.status}
                         </td>
-                        <td onClick={getPostHandler} className={`data-cell data-post ${item.progress}`}>
+                        <td
+                          onClick={getPostHandler}
+                          className={`data-cell data-post ${item.progress}`}
+                        >
                           {item.post}x{item.breddePost}-{item.prosent}%
                         </td>
                         <td className={`data-cell ${item.progress}`}>
@@ -298,7 +299,6 @@ const Postoppsett = ({
 
       <style jsx>
         {`
-      
           .header {
             color: #fff;
             animation: bounceInRight 1.2s forwards;
@@ -329,7 +329,7 @@ const Postoppsett = ({
           }
           .data-post:hover {
             cursor: pointer;
-            color: red
+            color: red;
           }
           .postText {
             font-size: 0.8rem;
@@ -355,10 +355,10 @@ const Postoppsett = ({
             right: 0.5rem;
             background: rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1s;
-            height: 15rem;
+            max-height: 15rem;
             overflow: scroll;
             overflow-x: hidden;
-            scrollbar-width: none
+            scrollbar-width: none;
           }
           .data-cell {
             border-right: 1px solid #3f3f3f;
@@ -518,19 +518,23 @@ const Postoppsett = ({
             align-items: center;
             grid-area: postContainer;
           }
-          .ani1 {
+           {
+             .ani1 {
             animation: rollIn 1.2s forwards;
           }
           .ani2 {
             animation: rotateIn 1.2s forwards;
+          } 
           }
           .userContainer {
             position: absolute;
             bottom: 0.5rem;
             left: 0;
             color: #bdbdbd;
-            animation: move 4s forwards;
-            animation-timing-function: linear;
+             {/* {
+              /* animation: move 4s forwards;
+            animation-timing-function: linear; */
+            } */}
           }
           .info-box {
             color: #bdbdbd;
