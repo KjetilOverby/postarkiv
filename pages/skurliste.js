@@ -26,7 +26,7 @@ const Skurliste = ({
   editModeColor,
   setCreateDate,
   postList,
-  setGetIdForEdit, 
+  setGetIdForEdit,
   setPostBredde,
   post2,
   setPost2,
@@ -36,7 +36,7 @@ const Skurliste = ({
   setPostTreslag,
   setPostklType,
   setPostklBordMkv,
-  setPostAnm2
+  setPostAnm2,
 }) => {
   const { user, isAuthenticated } = useAuth0();
   const isMobile = useMediaQuery({ query: `(max-width: 550px)` });
@@ -63,7 +63,40 @@ const Skurliste = ({
             )}
           </div>
         </div>
-      {!isMobile &&   <SkurlisteComponent
+        {!isMobile && (
+          <SkurlisteComponent
+            postList={postList}
+            setFilteredPostList={setFilteredPostList}
+            filteredPostList={filteredPostList}
+            setPostOppsett={setPostOppsett}
+            setHeaderPostOppsett={setHeaderPostOppsett}
+            setStartRingsPostOppsett={setStartRingsPostOppsett}
+            setRawRingsPostOppsett={setRawRingsPostOppsett}
+            setEndRingsPostOppsett={setEndRingsPostOppsett}
+            setBladstamme={setBladstamme}
+            setOpenSearchList={setOpenSearchList}
+            openSearchList={openSearchList}
+            setOpenDeleteModal={setOpenDeleteModal}
+            antallSum={antallSum}
+            kubikkSum={kubikkSum}
+            editModeColor={editModeColor}
+            setCreateDate={setCreateDate}
+            setGetIdForEdit={setGetIdForEdit}
+            setPostBredde={setPostBredde}
+            post2={post2}
+            setPost2={setPost2}
+            setAntallStokk={setAntallStokk}
+            setAntallKubikk={setAntallKubikk}
+            setPostKlasse={setPostKlasse}
+            setPostTreslag={setPostTreslag}
+            setPostklType={setPostklType}
+            setPostklBordMkv={setPostklBordMkv}
+            setPostAnm2={setPostAnm2}
+          />
+        )}
+      </div>
+      {isMobile && (
+        <SkurlisteMobil
           postList={postList}
           setFilteredPostList={setFilteredPostList}
           filteredPostList={filteredPostList}
@@ -81,42 +114,11 @@ const Skurliste = ({
           editModeColor={editModeColor}
           setCreateDate={setCreateDate}
           setGetIdForEdit={setGetIdForEdit}
-          setPostBredde={setPostBredde}
           post2={post2}
           setPost2={setPost2}
-          setAntallStokk={setAntallStokk}
-          setAntallKubikk={setAntallKubikk}
-          setPostKlasse={setPostKlasse}
-          setPostTreslag={setPostTreslag}
-          setPostklType={setPostklType}
-          setPostklBordMkv={setPostklBordMkv}
-          setPostAnm2={setPostAnm2}
-        />}
-      </div>
-      {isMobile && <SkurlisteMobil  postList={postList}
-          setFilteredPostList={setFilteredPostList}
-          filteredPostList={filteredPostList}
-          setPostOppsett={setPostOppsett}
-          setHeaderPostOppsett={setHeaderPostOppsett}
-          setStartRingsPostOppsett={setStartRingsPostOppsett}
-          setRawRingsPostOppsett={setRawRingsPostOppsett}
-          setEndRingsPostOppsett={setEndRingsPostOppsett}
-          setBladstamme={setBladstamme}
-          setOpenSearchList={setOpenSearchList}
-          openSearchList={openSearchList}
-          setOpenDeleteModal={setOpenDeleteModal}
-          antallSum={antallSum}
-          kubikkSum={kubikkSum}
-          editModeColor={editModeColor}
-          setCreateDate={setCreateDate}
-          setGetIdForEdit={setGetIdForEdit}
-          post2={post2}
-          setPost2={setPost2}
-          
-          />
-          }
-          
-          
+        />
+      )}
+
       <style jsx>
         {`
           .btn-container {
@@ -125,7 +127,9 @@ const Skurliste = ({
             width: 10rem;
           }
           .container {
-            margin: 1rem 3rem;
+            padding: 1rem 3rem;
+            background: linear-gradient(#fff, #bff);
+            min-height: 100vh;
           }
           .header {
           }
