@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import Blade from "../src/components/poster/Blade";
 import Fillrings from "../src/components/poster/Fillrings";
 import RawRings from "../src/components/poster/RawRings";
@@ -50,6 +50,13 @@ const Postoppsett = ({
   setAntallStokk,
   postList,
   setFilteredPostList,
+  setPostKlasse,
+  setPostTreslag,
+  setPostklType,
+  setPostklBordMkv,
+  setPostAnm2,
+  setAntallKubikk,
+  setPostBredde,
 }) => {
   const { lists } = useContext(AppData);
   const { user, isAuthenticated } = useAuth0();
@@ -58,7 +65,7 @@ const Postoppsett = ({
 
   const [openSkurliste, setOpenSkurliste] = useState(true);
   const [iconColor, setIconColor] = useState("off");
-  const [cellColor, setCellColor] = useState("");
+  const [writeData, setWriteData] = useState(false);
 
   const [post, setPost] = useState();
   const [percent, setPercent] = useState();
@@ -98,6 +105,40 @@ const Postoppsett = ({
     }
   }, [post]);
 
+  const useDidMountEffect = (func, deps) => {
+    const didMount = useRef(false);
+
+    useEffect(() => {
+      if (didMount.current) {
+        func();
+      } else {
+        didMount.current = true;
+      }
+    }, deps);
+  };
+
+  const [writePostBredde, setWritePostBredde] = useState();
+  const [writePostKlasse, setWritePostKlasse] = useState();
+  const [writePostTreslag, setWritePostTreslag] = useState();
+  const [writePostklType, setWritePostklType] = useState();
+  const [writePostklBordMkv, setWritePostklBordMkv] = useState();
+  const [writePostAnm2, setWritePostAnm2] = useState();
+  const [writeAntallStokk, setWriteAntallStokk] = useState();
+  const [writeAntallKubikk, setWriteAntallKubikk] = useState();
+  const [writePost2, setWritePost2] = useState();
+
+  useDidMountEffect(() => {
+    setPostBredde(writePostBredde);
+    setPostKlasse(writePostKlasse);
+    setPostTreslag(writePostTreslag);
+    setPostklType(writePostklType);
+    setPostklBordMkv(writePostklBordMkv);
+    setPostAnm2(writePostAnm2);
+    setAntallStokk(writeAntallStokk);
+    setAntallKubikk(writeAntallKubikk);
+    setPost2(writePost2);
+  }, [writeData]);
+
   return (
     <>
       {openSearchList && (
@@ -115,6 +156,9 @@ const Postoppsett = ({
           setGetIdForEdit={setGetIdForEdit}
           setAntallStokk={setAntallStokk}
           lists={lists}
+          setWriteData={setWriteData}
+          writeData={writeData}
+          postOppsett={true}
         />
       )}
 
@@ -251,9 +295,20 @@ const Postoppsett = ({
                 lists.map((item) => {
                   const getPostHandler = () => {
                     setPost(item.post);
+                    setOpenSearchList(true);
                     setPercent(item.prosent);
                     setBlade(item.blad);
-                    setOpenSearchList(true);
+
+                    setWritePost2(item.post);
+                    setWritePostBredde(item.breddePost);
+
+                    setWritePostKlasse(item.klasse);
+                    setWritePostTreslag(item.treslag);
+                    setWritePostklType(item.klType);
+                    setWritePostklBordMkv(item.anm);
+                    setWritePostAnm2(item.anm2);
+                    setWriteAntallStokk(item.ant);
+                    setWriteAntallKubikk(item.m3);
                   };
                   return (
                     <>

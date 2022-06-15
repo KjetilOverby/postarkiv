@@ -171,7 +171,10 @@ const Rediger = ({
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0 5rem;
+            padding: 0 5rem;
+            background: url("https://images.unsplash.com/photo-1593502260606-d4bd02b5fe07?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80");
+            background-size: cover;
+            min-height: 100vh;
           }
           .btn {
             margin-bottom: 0.5rem;
@@ -183,7 +186,7 @@ const Rediger = ({
           }
           .header {
             margin: 2rem 0;
-            color: #555;
+            color: #fff;
           }
           .inputContainer {
             margin-bottom: 3rem;
