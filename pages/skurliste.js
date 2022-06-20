@@ -63,7 +63,7 @@ const Skurliste = ({
             )}
           </div>
         </div>
-        {!isMobile && (
+       
           <SkurlisteComponent
             postList={postList}
             setFilteredPostList={setFilteredPostList}
@@ -93,9 +93,9 @@ const Skurliste = ({
             setPostklBordMkv={setPostklBordMkv}
             setPostAnm2={setPostAnm2}
           />
-        )}
+      
       </div>
-      {isMobile && (
+      {/* {isMobile && (
         <SkurlisteMobil
           postList={postList}
           setFilteredPostList={setFilteredPostList}
@@ -117,7 +117,7 @@ const Skurliste = ({
           post2={post2}
           setPost2={setPost2}
         />
-      )}
+      )} */}
 
       <style jsx>
         {`

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 var dateFormat = require("dateformat");
 import { BsFillXSquareFill } from "react-icons/bs";
 import { BiBlock } from "react-icons/bi";
+import Hidden from "../common/Hidden";
 
 const SkurlisteComponent = ({
   postList,
@@ -91,57 +92,58 @@ const SkurlisteComponent = ({
             router.pathname === "/rediger"
               ? { gridTemplateColumns: "repeat(16, auto)" }
               : { gridTemplateColumns: "repeat(15, auto" }
-          }
-        >
+          }>
           {router.pathname === "/rediger" && (
             <div className="tablesquare tablesquareTop">
-              <p></p>
+              <p className="square-text"></p>
             </div>
           )}
           <div className="tablesquare tablesquareTop">
-            <p>Treslag</p>
+            <p className="square-text">Treslag</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>Kl</p>
+            <p className="square-text">Kl</p>
+          </div>
+
+          <div className="tablesquare tablesquareTop">
+            <p className="square-text">Kl. grense</p>
+          </div>
+
+          <div className="tablesquare tablesquareTop">
+            <p className="square-text">Ant</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>Kl. grense</p>
+            <p className="square-text">m3</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>Ant</p>
+            <p className="square-text">Status</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>m3</p>
+            <p className="square-text">Post</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>Status</p>
+            <p className="square-text">X-log</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>Post</p>
+            <p className="square-text">%</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>X-log</p>
+            <p className="square-text">Anm</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>%</p>
+            <p className="square-text">VS66</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>Anm</p>
+            <p className="square-text">VS66 bredder</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>VS66</p>
+            <p className="square-text">MKV</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>VS66 bredder</p>
+            <p className="square-text">MKV bord</p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>MKV</p>
-          </div>
-          <div className="tablesquare tablesquareTop">
-            <p>MKV bord</p>
-          </div>
-          <div className="tablesquare tablesquareTop">
-            <p>MKV bredder</p>
+            <p className="square-text">MKV bredder</p>
           </div>
 
           {lists &&
@@ -222,8 +224,7 @@ const SkurlisteComponent = ({
                         <>
                           <button
                             onClick={openEditToolsHandler}
-                            className="buttons"
-                          >
+                            className="buttons">
                             Rediger
                           </button>
                           <button onClick={openDeleteModal} className="buttons">
@@ -235,89 +236,82 @@ const SkurlisteComponent = ({
                   )}
                   <div
                     key={item.header}
-                    className={`tablesquare klContainer ${item.progress}`}
-                  >
+                    className={`tablesquare klContainer square-text ${item.progress}`}>
                     <p
-                      className={`treslag ${
+                      className={`treslag square-text ${
                         item.treslag === "Gran" ? "gran" : "furu"
-                      }`}
-                    >
+                      }`}>
                       {item.treslag}
                     </p>
-                    <p>{dateFormat(item.date, "dd.mm.yyyy HH:MM:ss")}</p>
+                    <Hidden>
+                      <p>{dateFormat(item.date, "dd.mm.yyyy HH:MM:ss")}</p>
+                    </Hidden>
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare klContainer 
+                    className={`tablesquare klContainer square-text
                     ${item.progress} 
-                     `}
-                  >
+                     `}>
                     <p>{item.klasse}</p>
                     {item.klType && (
                       <p
-                        className={item.progress === "finished" ? "" : "klType"}
-                      >
+                        className={
+                          item.progress === "finished" ? "" : "klType"
+                        }>
                         {item.klType}
                       </p>
                     )}
                   </div>
+
                   <div
                     key={item.header}
-                    className={`tablesquare ${item.progress}`}
-                  >
+                    className={`tablesquare square-text ${item.progress}`}>
                     <p>{item.klgr}</p>
                   </div>
+
                   <div
                     key={item.header}
-                    className={`tablesquare ${item.progress}`}
-                  >
+                    className={`tablesquare square-text ${item.progress}`}>
                     <p>{item.ant}</p>
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare ${item.progress}`}
-                  >
+                    className={`tablesquare square-text ${item.progress}`}>
                     <p>{item.m3}</p>
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare ${item.progress}  ${
+                    className={`tablesquare  square-text ${item.progress}  ${
                       item.status === "stopp" ? "statusSquare" : ""
-                    }`}
-                  >
+                    }`}>
                     <p
                       className={`${
                         item.status === "stopp" ? "stop-text" : ""
-                      }`}
-                    >
+                      }`}>
                       {item.status}
                     </p>
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare postSquare ${item.progress}`}
+                    className={`tablesquare postSquare square-text ${item.progress}`}
                     postSquare
-                    onClick={getPostHandler}
-                  >
+                    onClick={getPostHandler}>
                     <p>{item.post}</p>
                     <p>x{item.breddePost}</p>
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare ${item.progress}`}
-                  >
+                    className={` square-text tablesquare ${item.progress}`}>
                     <p>{item.xLog}</p>
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare ${item.progress}`}
-                  >
+                    className={` square-text tablesquare ${item.progress}`}>
                     <p>{item.prosent}</p>
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare anmContainer ${item.progress}`}
-                  >
+                    className={`tablesquare anmContainer square-text ${item.progress}`}>
                     <p className={item.progress === "finished" ? "" : "anm"}>
                       {item.anm}
                     </p>
@@ -329,8 +323,7 @@ const SkurlisteComponent = ({
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare vs66 ${item.progress}`}
-                  >
+                    className={`tablesquare vs66 square-text ${item.progress}`}>
                     {item.vs66 ? (
                       <p>{item.vs66}</p>
                     ) : (
@@ -342,16 +335,14 @@ const SkurlisteComponent = ({
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare vs66XtraBrContainer vs66 ${item.progress}`}
-                  >
+                    className={`tablesquare vs66XtraBrContainer vs66 square-text ${item.progress}`}>
                     {item.vs66Br ? (
                       <p>{item.vs66Br}</p>
                     ) : (
                       <p
                         className={
                           item.progress === "finished" ? "" : "red-text"
-                        }
-                      >
+                        }>
                         Ingen bord
                       </p>
                     )}
@@ -359,14 +350,12 @@ const SkurlisteComponent = ({
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare ${item.progress}`}
-                  >
+                    className={`tablesquare square-text ${item.progress}`}>
                     <p>{item.blad}</p>
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare vs66XtraBrContainer mkv ${item.progress}`}
-                  >
+                    className={`tablesquare vs66XtraBrContainer mkv square-text ${item.progress}`}>
                     {item.mkvBord ? (
                       <p>{item.mkvBord}</p>
                     ) : (
@@ -377,16 +366,14 @@ const SkurlisteComponent = ({
                   </div>
                   <div
                     key={item.header}
-                    className={`tablesquare vs66XtraBrContainer mkv ${item.progress}`}
-                  >
+                    className={`tablesquare vs66XtraBrContainer mkv square-text ${item.progress}`}>
                     {item.mkvBr ? (
                       <p>{item.mkvBr}</p>
                     ) : (
                       <p
                         className={
                           item.progress === "finished" ? "" : "red-text"
-                        }
-                      >
+                        }>
                         Ingen bord
                       </p>
                     )}
@@ -398,15 +385,19 @@ const SkurlisteComponent = ({
             <div className="tablesquare tablesquareTop"></div>
           )}
           <div className="tablesquare tablesquareTop">
-            <p>{lists.length}</p>
+            <p className="square-text">{lists.length}</p>
           </div>
           <div className="tablesquare tablesquareTop"></div>
           <div className="tablesquare tablesquareTop"></div>
           <div className="tablesquare tablesquareTop">
-            <p>{antallSum && antallSum.reduce((a, b) => a + b, 0)}</p>
+            <p className="square-text">
+              {antallSum && antallSum.reduce((a, b) => a + b, 0)}
+            </p>
           </div>
           <div className="tablesquare tablesquareTop">
-            <p>{kubikkSum && kubikkSum.reduce((a, b) => a + b, 0)}</p>
+            <p className="square-text">
+              {kubikkSum && kubikkSum.reduce((a, b) => a + b, 0)}
+            </p>
           </div>
           <div className="tablesquare tablesquareTop"></div>
           <div className="tablesquare tablesquareTop"></div>
@@ -442,6 +433,7 @@ const SkurlisteComponent = ({
           .container {
             display: grid;
             background-color: #8d8d8d;
+            grid-template-columns: repeat(15, auto);
             grid-gap: 2px 1px;
             border: 1px solid #757575;
             width: 100%;
@@ -519,10 +511,20 @@ const SkurlisteComponent = ({
           }
           @media (max-width: 1200px) {
             .container {
-              width: 90rem;
+              width: auto;
+              background: grey;
+            }
+            .square-text {
+              font-size: 0.6rem;
             }
           }
           @media (max-width: 550px) {
+            .container {
+              grid-template-columns: repeat(14, 1fr);
+            }
+            .square-text {
+              font-size: 0.2rem;
+            }
           }
         `}
       </style>
