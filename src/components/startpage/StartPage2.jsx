@@ -298,7 +298,13 @@ const StartPage2 = ({
             font-size: 4rem;
           }
           .btn-container {
-            flex-direction: column;
+            margin-top: -10rem;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+          }
+          .header {
+            margin-top: 1rem;
           }
         }
         @media (max-width: 800px) {
