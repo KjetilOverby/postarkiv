@@ -318,8 +318,15 @@ const StartPage2 = ({
         @media (max-width: 550px) {
           .container {
           }
+          .btn-container {
+            margin-top: 10rem;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+          }
           .header {
             font-size: 1.5rem;
+            margin-top: 5rem;
           }
           .button {
             width: 22rem;
