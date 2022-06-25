@@ -7,6 +7,7 @@ import Users from "../utils/users";
 import ButtonComponent from "../src/components/common/buttons/ButtonComponent";
 import SkurlisteMobil from "../src/components/skurliste/SkurlisteMobil";
 import { useMediaQuery } from "react-responsive";
+import TimeComponent from "../src/components/common/TimeComponent";
 
 const Skurliste = ({
   filteredPostList,
@@ -42,6 +43,7 @@ const Skurliste = ({
   const isMobile = useMediaQuery({ query: `(max-width: 550px)` });
   return (
     <>
+      <TimeComponent />
       <div className="container">
         <div className="top-container">
           <div className="header-container">
@@ -63,37 +65,36 @@ const Skurliste = ({
             )}
           </div>
         </div>
-       
-          <SkurlisteComponent
-            postList={postList}
-            setFilteredPostList={setFilteredPostList}
-            filteredPostList={filteredPostList}
-            setPostOppsett={setPostOppsett}
-            setHeaderPostOppsett={setHeaderPostOppsett}
-            setStartRingsPostOppsett={setStartRingsPostOppsett}
-            setRawRingsPostOppsett={setRawRingsPostOppsett}
-            setEndRingsPostOppsett={setEndRingsPostOppsett}
-            setBladstamme={setBladstamme}
-            setOpenSearchList={setOpenSearchList}
-            openSearchList={openSearchList}
-            setOpenDeleteModal={setOpenDeleteModal}
-            antallSum={antallSum}
-            kubikkSum={kubikkSum}
-            editModeColor={editModeColor}
-            setCreateDate={setCreateDate}
-            setGetIdForEdit={setGetIdForEdit}
-            setPostBredde={setPostBredde}
-            post2={post2}
-            setPost2={setPost2}
-            setAntallStokk={setAntallStokk}
-            setAntallKubikk={setAntallKubikk}
-            setPostKlasse={setPostKlasse}
-            setPostTreslag={setPostTreslag}
-            setPostklType={setPostklType}
-            setPostklBordMkv={setPostklBordMkv}
-            setPostAnm2={setPostAnm2}
-          />
-      
+
+        <SkurlisteComponent
+          postList={postList}
+          setFilteredPostList={setFilteredPostList}
+          filteredPostList={filteredPostList}
+          setPostOppsett={setPostOppsett}
+          setHeaderPostOppsett={setHeaderPostOppsett}
+          setStartRingsPostOppsett={setStartRingsPostOppsett}
+          setRawRingsPostOppsett={setRawRingsPostOppsett}
+          setEndRingsPostOppsett={setEndRingsPostOppsett}
+          setBladstamme={setBladstamme}
+          setOpenSearchList={setOpenSearchList}
+          openSearchList={openSearchList}
+          setOpenDeleteModal={setOpenDeleteModal}
+          antallSum={antallSum}
+          kubikkSum={kubikkSum}
+          editModeColor={editModeColor}
+          setCreateDate={setCreateDate}
+          setGetIdForEdit={setGetIdForEdit}
+          setPostBredde={setPostBredde}
+          post2={post2}
+          setPost2={setPost2}
+          setAntallStokk={setAntallStokk}
+          setAntallKubikk={setAntallKubikk}
+          setPostKlasse={setPostKlasse}
+          setPostTreslag={setPostTreslag}
+          setPostklType={setPostklType}
+          setPostklBordMkv={setPostklBordMkv}
+          setPostAnm2={setPostAnm2}
+        />
       </div>
       {/* {isMobile && (
         <SkurlisteMobil
@@ -127,7 +128,7 @@ const Skurliste = ({
             width: 10rem;
           }
           .container {
-            padding: 1rem 3rem;
+            padding: 2rem 3rem;
             min-height: 100vh;
             background: url("https://images.unsplash.com/photo-1421435371524-d26441ec7dda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1476&q=80");
             background-size: cover;

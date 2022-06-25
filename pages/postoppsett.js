@@ -11,6 +11,7 @@ import MenuBtn from "../src/components/postoppsett/MenuBtn";
 import { FaClipboardList } from "react-icons/fa";
 import SearchListFromBtn from "../src/components/skurliste/SearchListFromBtn";
 import { AppData } from "../src/contexts/AppData";
+import TimeComponent from "../src/components/common/TimeComponent";
 
 const Postoppsett = ({
   headerPostOppsett,
@@ -141,6 +142,7 @@ const Postoppsett = ({
 
   return (
     <>
+      <TimeComponent />
       {openSearchList && (
         <SearchListFromBtn
           filteredPostList={filteredPostList}
