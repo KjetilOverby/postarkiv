@@ -3,20 +3,29 @@ import dateformat from "dateformat";
 
 const TimeComponent = () => {
   const [clockState, setClockState] = useState();
-  const [day, setDay] = useState();
+
+  const [updateDate, setUpdateDate] = useState(false);
+  const [dato, setDato] = useState();
 
   useEffect(() => {
     setInterval(() => {
       const date = new Date();
       setClockState(date.toLocaleTimeString());
+      if (dateformat(date, "HH:MM") === "00:01") {
+        setUpdateDate(!updateDate);
+      }
     }, 1000);
   });
+
+  useEffect(() => {
+    setDato(dateformat(new Date(), "dddd, mmmm dd"));
+  }, [updateDate]);
 
   return (
     <>
       <div className="container">
         <h1 className="clock">{clockState}</h1>
-        <p>{dateformat(new Date(), "dddd, mmmm dd")}</p>
+        <p>{dato}</p>
       </div>
       <style jsx>
         {`

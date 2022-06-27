@@ -359,7 +359,8 @@ const Postoppsett = ({
           .header {
             color: #fff;
             animation: bounceInRight 1.2s forwards;
-            font-weight: normal;
+            font-weight:300;
+            font-size: 2.5rem
           }
           .headerContainer {
             grid-area: header;
@@ -393,6 +394,7 @@ const Postoppsett = ({
           }
           .post-name {
             font-weight: 100;
+            font-size: 2.5rem
           }
           .full-post-name {
             color: #fff;
