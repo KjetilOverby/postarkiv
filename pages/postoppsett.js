@@ -438,7 +438,7 @@ const Postoppsett = ({
             color: #37f608;
           }
           .finished {
-            color: #595959;
+            color: grey;
           }
           .icon-btn-container {
             display: grid;
