@@ -431,15 +431,15 @@ const Postoppsett = ({
             border-right: 1px solid #3f3f3f;
             border-bottom: 1px solid #3f3f3f;
             padding: 5px;
-            color: orangered;
+            color: dodgerblue;
             font-size: 0.8rem;
           }
           .running {
-            color: #37f608;
-          }
-          .finished {
-            color: grey;
-          }
+              color: #63cbb7;
+            }
+            .finished {
+              color:#808080;
+            }
           .icon-btn-container {
             display: grid;
             place-items: center;
@@ -717,15 +717,15 @@ const Postoppsett = ({
               border-right: 1px solid #3f3f3f;
               border-bottom: 1px solid #3f3f3f;
               padding: 5px;
-              color: orangered;
+              color: dodgerblue;
               font-size: 1rem;
               font-weight: 400;
             }
             .running {
-              color: #37f608;
+              color: #63cbb7;
             }
             .finished {
-              color: #595959;
+              color:#808080;
             }
           }
 
