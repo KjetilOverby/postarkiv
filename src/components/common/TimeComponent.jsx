@@ -7,19 +7,19 @@ const TimeComponent = () => {
   const [updateDate, setUpdateDate] = useState(false);
   const [dato, setDato] = useState();
 
-  useEffect(() => {
-    setInterval(() => {
-      const date = new Date();
-      setClockState(date.toLocaleTimeString());
-      if (dateformat(date, "HH:MM") === "00:01") {
-        setUpdateDate(!updateDate);
-      }
-    }, 1000);
-  });
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     const date = new Date();
+  //     setClockState(date.toLocaleTimeString());
+  // if (dateformat(date, "HH:MM") === "00:01") {
+  //   setUpdateDate(!updateDate);
+  // }
+  //   }, 1000);
+  // });
 
-  useEffect(() => {
-    setDato(dateformat(new Date(), "dddd, mmmm dd"));
-  }, [updateDate]);
+  // useEffect(() => {
+  //   setDato(dateformat(new Date(), "dddd, mmmm dd"));
+  // }, [updateDate]);
 
   return (
     <>
