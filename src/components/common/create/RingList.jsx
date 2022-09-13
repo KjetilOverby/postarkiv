@@ -1,4 +1,3 @@
-import { set } from "mongoose";
 import React, { useState } from "react";
 import ringObject from "../create/ringObject";
 
@@ -30,6 +29,9 @@ const RingList = ({
       );
     }
   };
+
+  const [ring270, setRing270] = useState("ring270");
+
   return (
     <>
       <div className="container">
@@ -45,7 +47,16 @@ const RingList = ({
         <h1 className="header">Store ringer</h1>
         <div className="box-container">
           {ringObject.big.map((bigRings) => (
-            <div key={bigRings} className="ring-box" onClick={getRings}>
+            <div
+              key={bigRings}
+              className={`ring-box ${bigRings === 34.6 ? ring270 : ""} ${
+                bigRings === 37 ? ring270 : ""
+              } ${bigRings === 37.5 ? ring270 : ""} ${
+                bigRings === 40.8 ? ring270 : ""
+              } ${bigRings === 46.9 ? ring270 : ""} ${
+                bigRings === 53.1 ? ring270 : ""
+              } ${bigRings === 66.4 ? ring270 : ""}`}
+              onClick={getRings}>
               {bigRings}
             </div>
           ))}
@@ -97,6 +108,9 @@ const RingList = ({
             cursor: pointer;
             background-position: 100%;
             color: black;
+          }
+          .ring270 {
+            background: grey;
           }
           .top-header {
             color: #fd3636;
