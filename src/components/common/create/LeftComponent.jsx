@@ -71,7 +71,7 @@ const LeftComponent = ({
         {`
           .container {
             grid-area: left;
-            background: #ffffff;
+            background: var(--secondary);
             border-right: 1px solid #bebebe;
             display: flex;
             flex-direction: column;

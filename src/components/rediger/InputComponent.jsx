@@ -26,7 +26,7 @@ const InputComponent = ({
       {editModeColor === "edit-mode-color" ? (
         <h4 className="edit-header">Rediger klasse</h4>
       ) : (
-        <h4>Sett inn verdier</h4>
+        <h4 className="header">Sett inn verdier</h4>
       )}
       <div className="container">
         <div className={`form-box ${editModeColor}`}>
@@ -281,6 +281,9 @@ const InputComponent = ({
           }
           .xtra-box {
             background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%);
+          }
+          .header {
+            color: grey;
           }
           .edit-header {
             color: red;

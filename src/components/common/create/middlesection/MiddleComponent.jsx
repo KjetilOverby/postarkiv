@@ -185,7 +185,8 @@ const MiddleComponent = ({
                 fontWeight: "300",
                 marginLeft: "2rem",
                 fontSize: "1.5rem",
-              }}>
+              }}
+            >
               Start med å velge sagbladtykkelse.
             </p>
 
@@ -208,7 +209,7 @@ const MiddleComponent = ({
           margin: -3rem 2px -3rem -4px;
         }
         .container {
-          background-color: #ffffff;
+          background-color: var(--middle);
           grid-area: middle;
           display: grid;
           grid-template-rows: 10rem 15rem 1fr 10rem;
@@ -265,20 +266,20 @@ const MiddleComponent = ({
           grid-area: label2;
           display: flex;
           justify-content: center;
-          color: red;
+          color: #e77b7b;
           position: relative;
         }
         .label-container-left {
           grid-area: label1;
           display: flex;
           justify-content: center;
-          color: red;
+          color: #e77b7b;
         }
         .green {
-          color: #479947;
+          color: #73c873;
         }
         .saved-confirmed-container {
-          background-color: #73cc7f;
+          background-color: #73c873;
           position: absolute;
           padding: 0.5rem;
           border-radius: 5px;

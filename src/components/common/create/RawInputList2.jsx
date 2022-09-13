@@ -147,8 +147,9 @@ const RawInputList2 = ({
           }
           .main-container {
             grid-area: right;
+            padding-left: 2rem;
 
-            background-color: #ffffff;
+            background-color: var(--text);
             transform: translateX(30rem);
             overflow: scroll;
             height: 100vh;

@@ -58,7 +58,7 @@ const TopComponent = ({
         {`
           .container {
             grid-area: top;
-            background: #fff;
+            background: var(--primary);
             padding: 2rem;
             display: flex;
           }

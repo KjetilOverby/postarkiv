@@ -178,7 +178,7 @@ const CreateMainPage = ({
             startFillringsCollection={startFillringsCollection}
             setStartFillringsCollection={setStartFillringsCollection}
             header="Utfylling foran"
-            backgroundBtn="linear-gradient(120deg, #3f5474 50%, #8dc0d8 50%)"
+            backgroundBtn="linear-gradient(120deg, var(--secondary) 50%, var(--middle) 50%)"
             bladeDimension={bladeDimension}
           />
         )}

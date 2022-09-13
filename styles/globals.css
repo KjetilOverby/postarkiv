@@ -5,6 +5,107 @@
   --font: "Shippori Mincho", serif;
 }
 
+/* :root {
+  --primary: #2e1114;
+  --secondary: #501b1d;
+  --middle: #64485c;
+  --text: #83677b;
+  --text2: #adadad;
+} */
+/* :root {
+  --primary: #05386b;
+  --secondary: #379683;
+  --middle: #5cdb95;
+  --text: #8ee4af;
+  --text2: #edf5e1;
+} */
+
+/* :root {
+  --primary: #0b0c10;
+  --secondary: #1f2833;
+  --middle: #c5c6c7;
+  --text: #66fcf1;
+  --text2: #45a29e;
+} */
+/* :root {
+  --primary: #2c3531;
+  --secondary: #116466;
+  --middle: #d9b08c;
+  --text: #ffcb9a;
+  --text2: #d1e8e2;
+} */
+/* :root {
+  --primary: #687864;
+  --secondary: #31708e;
+  --middle: #5085a5;
+  --text: #8fc1e3;
+  --text2: #f7f9fb;
+} */
+/* :root {
+  --primary: #314455;
+  --secondary: #644e5b;
+  --middle: #9e5a63;
+  --text: #c96567;
+  --text2: #97aabd;
+} */
+/* :root {
+  --primary: #2d283e;
+  --secondary: #69467e;
+  --middle: #564f6f;
+  --text: #4c495d;
+  --text2: #d1d7e0;
+} */
+/* :root {
+  --primary: #026670;
+  --secondary: #80beac;
+  --middle: #fef9c7;
+  --text: #fce181;
+  --text2: #edeae5;
+} */
+/* ************************************* */
+/* :root {
+  --primary: #003b46;
+  --secondary: #07575b;
+  --middle: #66a5ad;
+  --text: #c4dfe6;
+  --text2: #edeae5;
+} */
+/* :root {
+  --primary: #011a27;
+  --secondary: #063852;
+  --middle: #f0810f;
+  --text: #e6df44;
+  --text2: #edeae5;
+} */
+/* :root {
+  --primary: #af4425;
+  --secondary: #662e1c;
+  --middle: #ebdcb2;
+  --text: #c9a66b;
+  --text2: #edeae5;
+} */
+/* :root {
+  --primary: #301b28;
+  --secondary: #523634;
+  --middle: #b6452c;
+  --text: #ddc5a2;
+  --text2: #edeae5;
+} */
+:root {
+  --primary: #04202c;
+  --secondary: #304040;
+  --middle: #5b7065;
+  --text: #c9d1c8;
+  --text2: #edeae5;
+}
+/* :root {
+  --primary: #217ca3;
+  --secondary: #32384d;
+  --middle: #211f30;
+  --text: #e29930;
+  --text2: #edeae5;
+} */
+
 html,
 body {
   padding: 0;
