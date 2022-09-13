@@ -37,12 +37,12 @@ const MenuBtn = ({ deleteBtn, setBtnCopyPost, btnCopyPost, setPost2 }) => {
           <Link href="/">
             <p className="tab">Startsiden</p>
           </Link>
-          <Link href="editpost">
+          {/*   <Link href="editpost">
             <p className="tab">Rediger post</p>
           </Link>
           <p onClick={copyPostHandler} className="tab">
             Kopier til ny post
-          </p>
+          </p> */}
           <p onClick={deleteBtn} className="tab">
             Slett post
           </p>
