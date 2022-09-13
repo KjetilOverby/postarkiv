@@ -218,6 +218,7 @@ const MiddleComponent = ({
             "post post"
             "label1 label2"
             ". .";
+          padding-top: 8rem;
         }
         .check {
           position: absolute;
