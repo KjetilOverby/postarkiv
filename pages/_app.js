@@ -17,15 +17,13 @@ function MyApp({ Component, pageProps }) {
     Math.floor(Math.random() * 12)
   );
 
-
   const [startFillringsCollection, setStartFillringsCollection] = useState();
   const [rawRingsCollection, setRawRingsCollection] = useState("");
   const [endFillRingsCollection, setEndFillRingsCollection] = useState("");
-  const [btnCopyPost, setBtnCopyPost] = useState(false)
+  const [btnCopyPost, setBtnCopyPost] = useState(false);
 
   //EDIT POST
   const [getEditPost, setGetEditPost] = useState();
-
 
   const [background, setBackground] = useState();
   const domain = process.env.REACT_APP_AUTH0_DOMAIN;
@@ -33,51 +31,51 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if (randomNumber === 0) {
       setBackground(
-        "https://images.unsplash.com/photo-1551043061-38bceaace400?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3873&q=80"
       );
     } else if (randomNumber === 1) {
       setBackground(
-        "https://images.unsplash.com/photo-1533735380053-eb8d0759b24a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1381&q=80"
+        "https://images.unsplash.com/photo-1620866476625-41f4780a578a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3870&q=80"
       );
     } else if (randomNumber === 2) {
       setBackground(
-        "https://images.unsplash.com/photo-1599496507927-9056debd0f0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        "https://images.unsplash.com/photo-1504788363733-507549153474?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3729&q=80"
       );
     } else if (randomNumber === 3) {
       setBackground(
-        "https://images.unsplash.com/photo-1618004912476-29818d81ae2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80"
+        "https://images.unsplash.com/photo-1416230789844-1998de481fdc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
       );
     } else if (randomNumber === 4) {
       setBackground(
-        "https://images.unsplash.com/photo-1535478044878-3ed83d5456ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1491&q=80"
+        "https://images.unsplash.com/photo-1473147319958-21c51372f690?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3000&q=80"
       );
     } else if (randomNumber === 5) {
       setBackground(
-        "https://images.unsplash.com/photo-1499088513455-78ed88b7a5b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1378&q=80"
+        "https://images.unsplash.com/photo-1663001244000-5a8880e2e6b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3200&q=80"
       );
     } else if (randomNumber === 6) {
       setBackground(
-        "https://images.unsplash.com/photo-1497960234455-7a67616da918?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+        "https://images.unsplash.com/photo-1547038577-da80abbc4f19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3310&q=80"
       );
     } else if (randomNumber === 7) {
       setBackground(
-        "https://images.unsplash.com/photo-1490093158370-1a6be674437b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1314&q=80"
+        "https://images.unsplash.com/photo-1590880449155-b54f958ce314?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3829&q=80"
       );
     } else if (randomNumber === 8) {
       setBackground(
-        "https://images.unsplash.com/photo-1575330741514-88046900ba72?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1466&q=80"
+        "https://images.unsplash.com/photo-1620138379310-16b58feb9e89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3870&q=80"
       );
     } else if (randomNumber === 9) {
       setBackground(
-        "https://images.unsplash.com/photo-1583645869327-5937d38c7ead?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        "https://images.unsplash.com/photo-1523652207403-a1835e194623?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3870&q=80"
       );
     } else if (randomNumber === 10) {
       setBackground(
-        "https://images.unsplash.com/photo-1582177198842-b65162af29d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        "https://images.unsplash.com/photo-1489447068241-b3490214e879?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3870&q=80"
       );
     } else if (randomNumber === 11) {
       setBackground(
-        "https://images.unsplash.com/photo-1605778336817-121ba9819b96?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1582&q=80"
+        "https://images.unsplash.com/photo-1457269449834-928af64c684d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3093&q=80"
       );
     }
   }, [randomNumber]);
@@ -100,22 +98,21 @@ function MyApp({ Component, pageProps }) {
   const [dated, setDated] = useState();
 
   const [getIdforDelete, setGetIdforDelete] = useState();
-  const [getIdForEdit, setGetIdForEdit] = useState()
+  const [getIdForEdit, setGetIdForEdit] = useState();
   const [postBredde, setPostBredde] = useState();
-  const [post2, setPost2] = useState()
- 
-// Data til postoppsett
+  const [post2, setPost2] = useState();
 
-const [antallStokk, setAntallStokk] = useState()
-const [antallKubikk, setAntallKubikk] = useState()
-const [postKlasse, setPostKlasse] = useState()
-const [postTreslag, setPostTreslag] = useState()
-const [postKlType, setPostklType] = useState()
-const [postKlBordMkv, setPostklBordMkv] = useState()
-const [postAnm2, setPostAnm2] = useState()
+  // Data til postoppsett
 
-const [updateDate, setUpdateDate] =useState()
- 
+  const [antallStokk, setAntallStokk] = useState();
+  const [antallKubikk, setAntallKubikk] = useState();
+  const [postKlasse, setPostKlasse] = useState();
+  const [postTreslag, setPostTreslag] = useState();
+  const [postKlType, setPostklType] = useState();
+  const [postKlBordMkv, setPostklBordMkv] = useState();
+  const [postAnm2, setPostAnm2] = useState();
+
+  const [updateDate, setUpdateDate] = useState();
 
   // Rediger
   const [treslag, setTreslag] = useState();
@@ -306,8 +303,6 @@ const [updateDate, setUpdateDate] =useState()
     }
   }, [breddePlank]);
 
-
-
   useEffect(() => {
     try {
       api.get(`/api/skurlister/getList`).then((res) => {
@@ -398,7 +393,7 @@ const [updateDate, setUpdateDate] =useState()
         }
       });
   };
-  
+
   const deletePostHandler = () => {
     api
       .delete(
@@ -427,7 +422,6 @@ const [updateDate, setUpdateDate] =useState()
       setOverflow("none");
     }
   }, [router]);
-
 
   return (
     <body style={{ overflow: `${overflow}` }}>
