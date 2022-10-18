@@ -290,6 +290,7 @@ const Postoppsett = ({
                 <th className="cell">status</th>
                 <th className="cell">post</th>
                 <th className="cell">X-Log</th>
+                <th className="cell">Anm</th>
                 <th className="cell">VS-66</th>
                 <th className="cell">MKV</th>
               </tr>
@@ -338,6 +339,9 @@ const Postoppsett = ({
                         </td>
                         <td className={`data-cell ${item.progress}`}>
                           {item.xLog}
+                        </td>
+                        <td className={`data-cell ${item.progress}`}>
+                          {item.anm}{' '}{item.anm2}
                         </td>
                         <td className={`data-cell ${item.progress}`}>
                           {item.vs66 ? item.vs66 : "X"}
