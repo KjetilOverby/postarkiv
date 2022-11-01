@@ -33,7 +33,9 @@ yarn-error.log*
 # vercel
 .vercel
 
-next.config.js
+
 utils
 
 todo
+
+next.config.js
